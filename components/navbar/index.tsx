@@ -16,7 +16,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full    sticky top-0 z-50">
+    <header className="w-full   bg-white  sticky top-0 z-50">
       <div className="max-w-7xl mx-auto ">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
