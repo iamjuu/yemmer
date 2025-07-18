@@ -3,7 +3,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Button from '../btn';
 import { Menu, X, Home, Building2, Briefcase, Target, Phone } from 'lucide-react';
-
+import { Logo } from '@/public';
+import Image from 'next/image';
 const navLinks = [
   { href: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
   { href: "/corporate", label: "Corporate", icon: <Building2 className="w-5 h-5" /> },
@@ -15,21 +16,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="w-full    sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="relative">
-                {/* Circular logo background */}
-                <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">YR</span>
-                </div>
-                {/* Small circular accent */}
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gray-800 rounded-full"></div>
-              </div>
-              <span className="text-xl font-bold text-gray-800 tracking-wide">YEMMAR</span>
+            <Image src={Logo} alt="logo" width={100} height={100} />
+            
             </Link>
           </div>
 
@@ -61,7 +55,7 @@ const Header = () => {
           <div className="md:hidden">
             <Button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              className="p-2 rounded-[8px] text-gray-700 hover:text-gray-900 hover:bg-gray-100"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
