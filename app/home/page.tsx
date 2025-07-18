@@ -1,35 +1,35 @@
 import React from "react";
 import Navbar from "@/components/navbar";
-import { Banner } from "@/public";
+import { Banner ,SectionOne} from "@/public";
 import localFont from "next/font/local";
 import Button from "@/components/btn";
 import { ChevronRight, MoveRight } from "lucide-react";
+import Image from "next/image";
 
 const manrope = localFont({
   src: "../../font/Manrope/Manrope-VariableFont_wght.ttf",
   display: "swap",
 });
 
-// NOTE: The following types and data are mocked to fix compilation errors
-// and allow the component to render. The original data fetching logic was broken.
-type AppSetting = {
-  _id?: string;
-  DEFAULT_PRIMARY_COLOUR?: string;
-  DEFAULT_PRIMARY_BASE?: string;
-  primaryColour?: string;
-  primaryBase?: string;
-  primaryDarker?: string;
-  primaryDark?: string;
-  primaryLighter?: string;
-  primaryLightest?: string;
-  event?: {
-    themeColor?: string;
-    themeTextColor?: string;
-  };
-  franchise?: any;
-};
+// NOTE: The following types and data are mocked to fix compilation error
 
 const page = () => {
+
+  const testimonials = [
+    {
+      id: 1,
+      text: "Business is not only about closing transactions; business is about having excellent products, doing amazing engineering and giving. Lastly, business is a web of human relationships.",
+      author: "Muneer V.K",
+      title: "Chairman & Director"
+    },
+    {
+      id: 2,
+      text: "I have the pleasure of working with the team at Vemmar group for for several years now, and I can honestly say that their new, each can honestly say that their satisfaction and professionalism is second to none. They truly care about their clients and are always willing to go above and beyond to ensure that their needs are met.",
+      author: "Muhammed Munees",
+      title: "General Manager"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -122,6 +122,111 @@ const page = () => {
           </div>
         </div>
       </div>
+
+      {/* ****************business sector section***************** */}
+      <div className="w-full p-8 b">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          
+          {/* Left side - Image with overlay */}
+          <div className="relative ">
+            <div className="relative overflow-hidden rounded-2xl ">
+              <Image src={SectionOne} alt="section one" />
+            </div>
+          </div>
+
+          {/* Right side - Statistics cards */}
+          <div className="flex flex-col space-y-6 h-full">
+            
+            {/* Total Retail Space Card */}
+            <div className="bg-white flex  flex-col justify-center items-start rounded-2xl p-8 shadow-sm border border-gray-100 flex-1">
+              <div className="text-4xl lg:text-5xl font-light text-gray-800 mb-2">
+                30000+ <span className="text-gray-600">sq.mtr</span>
+              </div>
+              <div className="text-gray-500 text-lg">
+                Total Retail Space
+              </div>
+            </div>
+
+            {/* Bottom row - Employees and Stores */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              {/* Employees Card */}
+              <div className="bg-[#FFCB05] rounded-2xl p-8 shadow-sm">
+                <div className="text-[50px]  font-light text-white mb-2">
+                  250+
+                </div>
+                <div className="text-white text-[30px] font-medium">
+                  Employees
+                </div>
+              </div>
+
+              {/* Retail Stores Card */}
+              <div className="bg-gray-800 rounded-2xl p-8 shadow-sm">
+                <div className="text-[50px] font-light text-white mb-2">
+                  35+
+                </div>
+                <div className="text-white text-[30px] font-medium">
+                  Retail Stores
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* ***********************our business section***************** */}
+
+    <div className="py-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Testimonials Grid */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-10 md:gap-0">
+          {/* CMD Message */}
+          <div
+            key={testimonials[0].id}
+            className="w-full md:w-[40%] rounded-2xl relative min-h-64 flex flex-col p-8"
+          >
+            <h1 className="md:text-[35px] font-light mb-6">
+              CMD'S
+              <br />
+              Message
+            </h1>
+            <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-16">
+              {testimonials[0].text}
+            </p>
+
+            <div className="absolute bottom-8 left-8 md:left-10">
+              <h3 className="text-lg font-medium text-gray-800 mb-1">
+                {testimonials[0].author}
+              </h3>
+              <p className="text-sm text-gray-600">{testimonials[0].title}</p>
+            </div>
+          </div>
+
+          {/* General Testimonial */}
+          <div
+            key={testimonials[1].id}
+            className="w-full md:w-[40%] rounded-2xl relative min-h-64 flex flex-col p-8"
+          >
+            <h2 className="text-3xl md:text-[35px] font-light mb-6">
+              Testimonials
+            </h2>
+            <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-16">
+              {testimonials[1].text}
+            </p>
+
+            <div className="absolute bottom-8 left-8 md:left-10">
+              <h3 className="text-lg font-medium text-gray-800 mb-1">
+                {testimonials[1].author}
+              </h3>
+              <p className="text-sm text-gray-600">{testimonials[1].title}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };
