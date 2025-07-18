@@ -16,8 +16,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full    sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="w-full   bg-white  sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto ">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -44,7 +44,7 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <Link
               href="/contact"
-              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-200"
+              className="flex items-center  px-4 py-1 border border-gray-300 rounded-[8px] text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-200"
             >
               {/* <Phone className="w-4 h-4" /> */}
               <span>Contact Us</span>
