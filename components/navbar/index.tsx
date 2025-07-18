@@ -52,7 +52,7 @@ const Header = () => {
               href="/contact"
               className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-200"
             >
-              <Phone className="w-4 h-4" />
+              {/* <Phone className="w-4 h-4" /> */}
               <span>Contact Us</span>
             </Link>
           </div>
