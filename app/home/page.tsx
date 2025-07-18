@@ -217,6 +217,15 @@ const page = () => {
               {testimonials[1].text}
             </p>
 
+            <div className="absolute bottom-24 left-8 md:left-10">
+              <Button
+                className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
+              >
+                Read More
+                <MoveRight  className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+
             <div className="absolute bottom-8 left-8 md:left-10">
               <h3 className="text-lg font-medium text-gray-800 mb-1">
                 {testimonials[1].author}
