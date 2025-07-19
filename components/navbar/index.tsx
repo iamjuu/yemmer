@@ -1,10 +1,14 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Link from 'next/link';
 import Button from '../btn';
-import { Menu, X, Home, Building2, Briefcase, Target, Phone } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { Logo } from '@/public';
 import Image from 'next/image';
+
 const navLinks = [
   { href: "/", label: "Home",  },
   { href: "/corporate", label: "Corporate",  },
@@ -14,6 +18,13 @@ const navLinks = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+         duration: 800,
+         once: false,
+       })
+  }, [])
 
   return (
     <header className="w-full   bg-white  sticky top-0 z-50">
@@ -29,11 +40,13 @@ const Header = () => {
 
           {/* Desktop Navigation Menu */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200"
+                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-300"
+                data-aos="flip-down"
+                data-aos-delay={index * 100}
               >
                 {link.label}
               </Link>
@@ -57,7 +70,11 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-[8px] text-gray-700 hover:text-gray-900 hover:bg-gray-100"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <FontAwesomeIcon icon={faXmark} className="h-6 w-6" />
+              ) : (
+                <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -65,29 +82,38 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100">
-          <nav className="flex flex-col space-y-2 px-4 pt-2 pb-4">
-            {navLinks.map((link) => (
+        <>
+          {/* Backdrop overlay with blur */}
+          <div 
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm md:hidden" 
+            onClick={() => setIsMenuOpen(false)}
+          />
+          <div className="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg z-50">
+            <nav className="flex flex-col space-y-2 px-4 pt-2 pb-4">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  data-aos="flip-down"
+                  data-aos-delay={index * 100}
+                >
+                  <span>{link.label}</span>
+                </Link>
+              ))}
               <Link
-                key={link.href}
-                href={link.href}
+                href="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                data-aos="flip-down"
               >
-              
-                <span>{link.label}</span>
+                <FontAwesomeIcon icon={faPhone} className="w-5 h-5" />
+                <span>Contact Us</span>
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-            >
-              <Phone className="w-5 h-5" />
-              <span>Contact Us</span>
-            </Link>
-          </nav>
-        </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );
