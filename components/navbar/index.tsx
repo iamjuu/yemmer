@@ -6,10 +6,10 @@ import { Menu, X, Home, Building2, Briefcase, Target, Phone } from 'lucide-react
 import { Logo } from '@/public';
 import Image from 'next/image';
 const navLinks = [
-  { href: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
-  { href: "/corporate", label: "Corporate", icon: <Building2 className="w-5 h-5" /> },
-  { href: "/business-sector", label: "Business Sector", icon: <Briefcase className="w-5 h-5" /> },
-  { href: "/vision-mission", label: "Vision & Mission", icon: <Target className="w-5 h-5" /> },
+  { href: "/", label: "Home",  },
+  { href: "/corporate", label: "Corporate",  },
+  { href: "/business-sector", label: "Business Sector", },
+  { href: "/vision-mission", label: "Vision & Mission",  },
 ];
 
 const Header = () => {
@@ -74,7 +74,7 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
-                {link.icon}
+              
                 <span>{link.label}</span>
               </Link>
             ))}
