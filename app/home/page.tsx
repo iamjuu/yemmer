@@ -60,22 +60,16 @@ const sponser = [
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white">
-      {/* <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -right-32 w-64 h-64 bg-[var(--primary-base)] rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse"></div>
-        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-move-random"></div>
-        <div
-          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white rounded-full filter blur-xl opacity-5 animate-pulse animation-delay-4000`}
-        ></div>
-        <div
-          className={`absolute bottom-1/2 right-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white rounded-full filter blur-xl opacity-5 animate-pulse animation-delay-4000`}
-        ></div>
-      </div> */}
+    
       <Navbar />
 
       {/* **************hero section***************** */}
       <div className="w-full py-10 px-2 md:px-0 ">
         <div
-          className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
+
+      data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom"
+          className="relative   w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${Banner.src})`,
             backgroundPosition: "center",
@@ -108,14 +102,20 @@ const sponser = [
       <div className=" w-full  px-2 md:px-0  py-2 md:py-12">
         <div className="max-w-6xl mx-auto">
           {/* About Button */}
-          <div className="py-5">
+          <div 
+       data-aos="fade-up"
+     data-aos-anchor-placement="top-center"
+          className="py-5">
             <Button className="px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
               About
             </Button>
           </div>
 
           {/* Main Content */}
-          <div className="space-y-8">
+          <div 
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-center"
+          className="space-y-8">
             {/* Heading */}
             <h1
               className={`${manrope.className}
@@ -155,8 +155,13 @@ const sponser = [
       <div className="w-full px-2 py-12 md:px-0">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-end justify-items-center">
-            {sponser.map((sponser) => (
-              <Image key={sponser.id} src={sponser.image} alt="sponser" />
+            {sponser.map((sponser, index) => (
+              <Image
+                key={sponser.id}
+                src={sponser.image}
+                alt="sponser"
+                data-aos={index % 2 === 0 ? "flip-down" : "flip-up"}
+              />
             ))}
           </div>
       </div>

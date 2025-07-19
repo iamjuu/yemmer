@@ -7,7 +7,8 @@ import {
   faFacebookF, 
   faLinkedinIn, 
   faInstagram, 
-  faTwitter 
+  faTwitter ,
+  faXTwitter
 } from '@fortawesome/free-brands-svg-icons';
 
 const manrope = localFont({
@@ -17,15 +18,18 @@ const manrope = localFont({
 
 export default function YemmarFooter() {
   return (
-    <footer className={`text-white justify-center flex w-full py-6 sm:py-8 md:py-12 px-4 sm:px-6 ${manrope.className}`}>
+    <footer className={`text-white justify-center flex w-full py-6 sm:py-8 md:py-12 px-1 sm:px-2 ${manrope.className}`}>
       <div className="max-w-7xl w-full flex flex-col p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] justify-center bg-[#2F3134]">
         
         {/* Main Content Section */}
         <div className="flex w-full justify-between max-w-6xl flex-col md:flex-row mb-8 sm:mb-10 md:mb-12 gap-8 md:gap-0">
           
           {/* Logo Section */}
-          <div className="w-full md:w-[70%] flex justify-center md:justify-start">
-            <Image src={FooterLogo} className="w-[150px] sm:w-[180px] md:w-[200px]" alt="logo" />
+          <div className="w-full md:w-[70%] flex justify-start">
+            <div className='w-[250px]'>
+            <Image src={FooterLogo} className="" alt="logo" />
+
+            </div>
           </div>
 
           {/* Navigation and Contact Section */}
@@ -92,7 +96,7 @@ export default function YemmarFooter() {
           </div>
 
           {/* Social Media Icons */}
-          <div className="w-full sm:w-[20%] flex justify-center sm:justify-between px-2 sm:px-5 gap-4 sm:gap-5">
+          <div className="w-full sm:w-[20%] flex justify-center sm:justify-between px-2  gap-4 sm:gap-5">
             <a 
               href="#" 
               className="text-gray-400 hover:text-white transition-colors duration-200 flex-shrink-0"
@@ -119,7 +123,8 @@ export default function YemmarFooter() {
               className="text-gray-400 hover:text-white transition-colors duration-200 flex-shrink-0"
               aria-label="Twitter"
             >
-              <FontAwesomeIcon icon={faTwitter} className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FontAwesomeIcon icon={faXTwitter} className="w-5 h-5 sm:w-6 sm:h-6" />
+              {/* <FontAwesomeIcon icon="fa-brands fa-x-twitter"    className="w-5 h-5 sm:w-6 sm:h-6"  /> */}
             </a>
           </div>
         </div>
