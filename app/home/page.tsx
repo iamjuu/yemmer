@@ -60,22 +60,17 @@ const sponser = [
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white">
-      {/* <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -right-32 w-64 h-64 bg-[var(--primary-base)] rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse"></div>
-        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-move-random"></div>
-        <div
-          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white rounded-full filter blur-xl opacity-5 animate-pulse animation-delay-4000`}
-        ></div>
-        <div
-          className={`absolute bottom-1/2 right-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white rounded-full filter blur-xl opacity-5 animate-pulse animation-delay-4000`}
-        ></div>
-      </div> */}
+    
       <Navbar />
 
       {/* **************hero section***************** */}
       <div className="w-full py-10 px-2 md:px-0 ">
         <div
-          className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
+
+        data-aos="zoom-out-up"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+          className="relative   w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${Banner.src})`,
             backgroundPosition: "center",
