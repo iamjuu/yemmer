@@ -23,7 +23,7 @@ const page = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true,
+      mirror: true,
     });
   }, []);
 
@@ -80,6 +80,7 @@ const sponser = [
 
       data-aos="fade-up"
      data-aos-anchor-placement="top-bottom"
+          data-aos-mirror="true"
           className="relative   w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${Banner.src})`,
@@ -116,6 +117,7 @@ const sponser = [
           <div 
        data-aos="fade-up"
      data-aos-anchor-placement="top-center"
+          data-aos-mirror="true"
           className="py-5">
             <Button className="px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
               About
@@ -126,6 +128,7 @@ const sponser = [
           <div 
           data-aos="fade-up"
           data-aos-anchor-placement="top-center"
+          data-aos-mirror="true"
           className="space-y-8">
             {/* Heading */}
             <h1
@@ -171,7 +174,16 @@ const sponser = [
                 key={sponser.id}
                 src={sponser.image}
                 alt="sponser"
-                data-aos={index % 2 === 0 ? "flip-down" : "flip-up"}
+                data-aos-mirror="true"
+                data-aos={
+                  index % 4 === 0 
+                    ? "fade-up" 
+                    : index % 4 === 1 
+                    ? "fade-down"
+                    : index % 4 === 2
+                    ? "flip-up"
+                    : "flip-down"
+                }
               />
             ))}
           </div>
@@ -186,7 +198,11 @@ const sponser = [
           {/* Left side - Image with overlay */}
           <div className="relative  ">
             <div className="relative  overflow-hidden rounded-2xl ">
-              <Image src={SectionOne} alt="section one" />
+              <Image
+              
+              data-aos="flip-up"
+              data-aos-mirror="true"
+              src={SectionOne} alt="section one" />
             </div>
           </div>
 
@@ -195,10 +211,17 @@ const sponser = [
             
             {/* Total Retail Space Card */}
             <div className="bg-white flex  flex-col justify-center items-start rounded-2xl p-8 shadow-sm border border-gray-100 flex-1">
-              <div className="text-4xl lg:text-5xl font-light text-gray-800 mb-2">
-                30000+ <span className="text-gray-600">sq.mtr</span>
+              <div 
+              data-aos="flip-down"
+              data-aos-mirror="true"
+              className="text-4xl lg:text-5xl font-light text-gray-800 mb-2">
+                30000+ <span data-aos="fade-up" data-aos-mirror="true" className="text-gray-600">sq.mtr</span>
               </div>
-              <div className="text-gray-500 text-lg">
+              <div   
+              
+              data-aos="fade-up"
+              data-aos-mirror="true"
+              className="text-gray-500 text-lg">
                 Total Retail Space
               </div>
             </div>
@@ -207,21 +230,41 @@ const sponser = [
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               {/* Employees Card */}
-              <div className="bg-[#FFCB05] rounded-2xl p-8 shadow-sm">
-                <div className="text-[50px]  font-light text-white mb-2">
+              <div
+                data-aos-delay={100}
+                 data-aos="flip-down"
+                data-aos-mirror="true"
+              className="bg-[#FFCB05] rounded-2xl p-8 shadow-sm">
+                <div 
+              
+                className="text-[50px]  font-light text-white mb-2">
                   250+
                 </div>
-                <div className="text-white text-[30px] font-medium">
+                <div
+                data-aos-delay={200}
+                data-aos="flip-up"
+                data-aos-mirror="true"
+                className="text-white text-[30px] font-medium">
                   Employees
                 </div>
               </div>
 
               {/* Retail Stores Card */}
-              <div className="bg-gray-800 rounded-2xl p-8 shadow-sm">
-                <div className="text-[50px] font-light text-white mb-2">
+              <div 
+                 data-aos-delay={300}
+                data-aos="flip-up"
+                data-aos-mirror="true"
+              className="bg-gray-800 rounded-2xl p-8 shadow-sm">
+                <div 
+             
+                className="text-[50px] font-light text-white mb-2">
                   35+
                 </div>
-                <div className="text-white text-[30px] font-medium">
+                <div
+                data-aos-delay={400}
+                data-aos="flip-down"
+                data-aos-mirror="true"
+                className="text-white text-[30px] font-medium">
                   Retail Stores
                 </div>
               </div>
@@ -240,23 +283,43 @@ const sponser = [
         <div className="flex flex-col md:flex-row md:justify-between   md:gap-10 gap-0">
           {/* CMD Message */}
           <div
+
+            data-aos="fade-up"
+            data-aos-delay={100}
+            data-aos-mirror="true"
             key={testimonials[0].id}
             className="w-full md:w-[60%] rounded-2xl relative min-h-64 flex flex-col p-8"
           >
-            <h1 className="md:text-[35px] font-light mb-6">
+            <h1 
+            data-aos="fade-up"
+            data-aos-delay={200}
+            data-aos-mirror="true"
+            className="md:text-[35px] font-light mb-6">
               CMD'S
               <br />
               Message
             </h1>
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-16">
+            <p
+            data-aos="fade-up"
+            data-aos-delay={300}
+            data-aos-mirror="true"
+            className="text-sm md:text-base text-gray-700 leading-relaxed mb-16">
               {testimonials[0].text}
             </p>
 
             <div className="absolute bottom-8 left-8 md:left-10">
-              <h3 className="text-lg font-medium text-gray-800 mb-1">
+              <h3 
+              data-aos="fade-up"
+              data-aos-delay={400}
+              data-aos-mirror="true"
+              className="text-lg font-medium text-gray-800 mb-1">
                 {testimonials[0].author}
               </h3>
-              <p className="text-sm text-gray-600">{testimonials[0].title}</p>
+              <p
+              data-aos="fade-up"
+              data-aos-delay={500}
+              data-aos-mirror="true"
+              className="text-sm text-gray-600">{testimonials[0].title}</p>
             </div>
           </div>
 
@@ -265,7 +328,11 @@ const sponser = [
             key={testimonials[1].id}
             className="w-full md:w-[40%] rounded-2xl relative  justify-center md:justify-end items-center md:items-end flex flex-col p-8"
           >
-         <Image src={SectionCard}   className="md:w-72 w-34   " alt="section card" />
+         <Image
+         data-aos="zoom-in-up"
+         data-aos-delay={600}
+         data-aos-mirror="true"
+         src={SectionCard}   className="md:w-72 w-34   " alt="section card" />
           </div>
         </div>
       </div>
