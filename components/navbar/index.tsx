@@ -33,7 +33,11 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-            <Image src={Logo} alt="logo" width={100} height={100} />
+            <Image 
+            data-aos="fade-up"
+            data-aos-delay={100}
+            src={Logo} alt="logo" width={100} height={100} />
+            
             
             </Link>
           </div>
@@ -46,7 +50,7 @@ const Header = () => {
                 href={link.href}
                 className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-300"
                 data-aos="flip-down"
-                data-aos-delay={index * 100}
+                data-aos-delay={index * 400}
               >
                 {link.label}
               </Link>
@@ -54,7 +58,13 @@ const Header = () => {
           </nav>
 
           {/* Desktop Contact Button */}
-          <div className="hidden md:flex items-center">
+          <div
+          
+          
+          className="hidden md:flex items-center"
+          data-aos="flip-up"
+          data-aos-delay={1000}
+          >
             <Link
               href="/contact"
               className="flex items-center  px-4 py-1 border border-gray-300 rounded-[8px] text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-200"
