@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "@/components/navbar";
-import { Banner ,SectionOne} from "@/public";
+import { Banner ,SectionCard,SectionOne, Sponser1, Sponser2, Sponser3, Sponser4, Sponser5, Sponser6} from "@/public";
 import localFont from "next/font/local";
 import Button from "@/components/btn";
 import { ChevronRight, MoveRight } from "lucide-react";
 import Image from "next/image";
+import YemmarFooter from "@/components/footer";
 
 const manrope = localFont({
   src: "../../font/Manrope/Manrope-VariableFont_wght.ttf",
@@ -30,9 +31,36 @@ const page = () => {
     }
   ];
 
+const sponser = [
+  {
+    id: 1,
+    image: Sponser1
+  },
+  {
+    id: 2,
+    image: Sponser2
+  },
+  {
+    id: 3,
+    image: Sponser3
+  },
+  {
+    id: 4,
+    image: Sponser4
+  },
+  {
+    id: 5,
+    image: Sponser5
+  },
+  {
+    id: 6,
+    image: Sponser6
+  }
+]
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-32 -right-32 w-64 h-64 bg-[var(--primary-base)] rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse"></div>
         <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-move-random"></div>
         <div
@@ -41,11 +69,11 @@ const page = () => {
         <div
           className={`absolute bottom-1/2 right-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white rounded-full filter blur-xl opacity-5 animate-pulse animation-delay-4000`}
         ></div>
-      </div>
+      </div> */}
       <Navbar />
 
       {/* **************hero section***************** */}
-      <div className="w-full py-10 ">
+      <div className="w-full py-10 px-2 md:px-0 ">
         <div
           className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
           style={{
@@ -77,7 +105,7 @@ const page = () => {
 
       {/* ****************about section***************** */}
 
-      <div className=" w-full  py-2 md:py-12">
+      <div className=" w-full  px-2 md:px-0  py-2 md:py-12">
         <div className="max-w-6xl mx-auto">
           {/* About Button */}
           <div className="py-5">
@@ -123,14 +151,25 @@ const page = () => {
         </div>
       </div>
 
+      {/* *******************sponser section***************** */}
+      <div className="w-full px-2 py-12 md:px-0">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-end justify-items-center">
+            {sponser.map((sponser) => (
+              <Image key={sponser.id} src={sponser.image} alt="sponser" />
+            ))}
+          </div>
+      </div>
+      </div>
+
       {/* ****************business sector section***************** */}
-      <div className="w-full p-8 b">
+      <div className="w-full px-2  py-12 md:px-0">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8  ">
           
           {/* Left side - Image with overlay */}
-          <div className="relative ">
-            <div className="relative overflow-hidden rounded-2xl ">
+          <div className="relative  ">
+            <div className="relative  overflow-hidden rounded-2xl ">
               <Image src={SectionOne} alt="section one" />
             </div>
           </div>
@@ -179,14 +218,14 @@ const page = () => {
 
     {/* ***********************our business section***************** */}
 
-    <div className="py-12">
-      <div className="max-w-6xl mx-auto">
+    <div className="py-12 px-2 md:px-0 ">
+      <div className="max-w-6xl mx-auto  ">
         {/* Testimonials Grid */}
-        <div className="flex flex-col md:flex-row md:justify-between gap-10 md:gap-0">
+        <div className="flex flex-col md:flex-row md:justify-between   md:gap-10 gap-0">
           {/* CMD Message */}
           <div
             key={testimonials[0].id}
-            className="w-full md:w-[40%] rounded-2xl relative min-h-64 flex flex-col p-8"
+            className="w-full md:w-[60%] rounded-2xl relative min-h-64 flex flex-col p-8"
           >
             <h1 className="md:text-[35px] font-light mb-6">
               CMD'S
@@ -208,34 +247,20 @@ const page = () => {
           {/* General Testimonial */}
           <div
             key={testimonials[1].id}
-            className="w-full md:w-[40%] rounded-2xl relative min-h-64 flex flex-col p-8"
+            className="w-full md:w-[40%] rounded-2xl relative  justify-center md:justify-end items-center md:items-end flex flex-col p-8"
           >
-            <h2 className="text-3xl md:text-[35px] font-light mb-6">
-              Testimonials
-            </h2>
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-16">
-              {testimonials[1].text}
-            </p>
-
-            <div className="absolute bottom-24 left-8 md:left-10">
-              <Button
-                className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
-              >
-                Read More
-                <MoveRight  className="ml-2 w-4 h-4" />
-              </Button>
-            </div>
-
-            <div className="absolute bottom-8 left-8 md:left-10">
-              <h3 className="text-lg font-medium text-gray-800 mb-1">
-                {testimonials[1].author}
-              </h3>
-              <p className="text-sm text-gray-600">{testimonials[1].title}</p>
-            </div>
+         <Image src={SectionCard}   className="md:w-72 w-34   " alt="section card" />
           </div>
         </div>
       </div>
     </div>
+
+    {/* ***********************footer section***************** */}
+
+    <div className="w-full px-2 py-12 md:px-0">
+      <YemmarFooter />
+    </div>
+
     </div>
   );
 };
