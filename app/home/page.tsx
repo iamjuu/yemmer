@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import Navbar from "@/components/navbar";
 import { Banner ,SectionCard,SectionOne, Sponser1, Sponser2, Sponser3, Sponser4, Sponser5, Sponser6} from "@/public";
@@ -6,6 +8,9 @@ import Button from "@/components/btn";
 import { ChevronRight, MoveRight } from "lucide-react";
 import Image from "next/image";
 import YemmarFooter from "@/components/footer";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 const manrope = localFont({
   src: "../../font/Manrope/Manrope-VariableFont_wght.ttf",
@@ -15,6 +20,12 @@ const manrope = localFont({
 // NOTE: The following types and data are mocked to fix compilation error
 
 const page = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   const testimonials = [
     {
