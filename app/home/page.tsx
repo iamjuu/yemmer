@@ -67,9 +67,8 @@ const sponser = [
       <div className="w-full py-10 px-2 md:px-0 ">
         <div
 
-        data-aos="zoom-out-up"
-        data-aos-duration="1000"
-        data-aos-delay="100"
+      data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom"
           className="relative   w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[500px] bg-cover bg-center rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${Banner.src})`,
@@ -103,14 +102,20 @@ const sponser = [
       <div className=" w-full  px-2 md:px-0  py-2 md:py-12">
         <div className="max-w-6xl mx-auto">
           {/* About Button */}
-          <div className="py-5">
+          <div 
+       data-aos="fade-up"
+     data-aos-anchor-placement="top-center"
+          className="py-5">
             <Button className="px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
               About
             </Button>
           </div>
 
           {/* Main Content */}
-          <div className="space-y-8">
+          <div 
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-center"
+          className="space-y-8">
             {/* Heading */}
             <h1
               className={`${manrope.className}
@@ -150,8 +155,13 @@ const sponser = [
       <div className="w-full px-2 py-12 md:px-0">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-end justify-items-center">
-            {sponser.map((sponser) => (
-              <Image key={sponser.id} src={sponser.image} alt="sponser" />
+            {sponser.map((sponser, index) => (
+              <Image
+                key={sponser.id}
+                src={sponser.image}
+                alt="sponser"
+                data-aos={index % 2 === 0 ? "flip-down" : "flip-up"}
+              />
             ))}
           </div>
       </div>
