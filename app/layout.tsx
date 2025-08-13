@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
 
-const manrope = localFont({
-  src: '../font/Manrope/Manrope-VariableFont_wght.ttf',
-  variable: '--font-manrope',
+const montserrat = localFont({
+  src: '../font/Montserrat/Montserrat-VariableFont_wght.ttf',
+  variable: '--font-montserrat',
 });
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} font-sans`}>{children}</body>
+      <body className={`${montserrat.variable} ${montserrat.className}`}>{children}</body>
     </html>
   );
 }

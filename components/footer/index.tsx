@@ -18,7 +18,7 @@ const manrope = localFont({
 
 export default function YemmarFooter() {
   return (
-    <footer className={`text-white justify-center flex w-full py-6 sm:py-8 md:py-12 px-1 sm:px-2 ${manrope.className}`}>
+    <footer className={`text-white justify-center flex w-full  ${manrope.className}`}>
       <div className="max-w-7xl w-full flex flex-col p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] justify-center bg-[#2F3134]">
         
         {/* Main Content Section */}
