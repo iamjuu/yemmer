@@ -13,6 +13,9 @@ import Instagram from "./icons/instagram logo.png"
 import Linkedin from "./icons/linkedin logo.png"
 import Facebook from "./icons/facebook logo.png"
 import Twitter from "./icons/List → Item → Link.png"
+import YemmarBg from "./image/yemmarbg.svg"
+import ArabicPic from "./image/arabic.svg"
+import Mainbg from "./image/mainbg.svg"
 
 export{
     Logo,
@@ -29,5 +32,7 @@ export{
     Instagram,
     Linkedin,
     Facebook,
-    Twitter
+    Twitter,
+    YemmarBg,
+    Mainbg
 }

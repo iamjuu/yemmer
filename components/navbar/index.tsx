@@ -25,25 +25,22 @@ const Header = () => {
          once: false,
        })
   }, [])
-
   return (
-    <header className="w-full   bg-white  sticky top-0 z-50">
+    <header className="w-full bg-white px-3 md:px-2">
       <div className="max-w-7xl mx-auto ">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between  pitems-center pb-[43px]  pt-[37px]">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-            <Image 
+            <Link href="/" className="flex w-[198px] h-[72px] items-center  py-2">
+                 <Image 
             data-aos="fade-up"
             data-aos-delay={100}
-            src={Logo} alt="logo" width={100} height={100} />
-            
-            
+            src={Logo} alt="logo" width={198} height={72} />
             </Link>
           </div>
 
           {/* Desktop Navigation Menu */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-[72px]">
             {navLinks.map((link, index) => (
               <Link
                 key={link.href}
