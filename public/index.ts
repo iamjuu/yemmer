@@ -17,6 +17,10 @@ import Twitter from "./icons/List → Item → Link.png"
 import YemmarBg from "./image/yemmarbg.svg"
 import ArabicPic from "./image/arabic.svg"
 import Mainbg from "./image/mainbg.svg"
+import Cart from "./icons/shopping-cart.svg"
+import Settings from "./icons/settings.svg"
+import Loory from "./icons/truck.svg"
+import Search from "./icons/shopping-cart.svg"
 
 export{
     Logo,
@@ -37,5 +41,9 @@ export{
     Twitter,
     YemmarBg,
     Mainbg,
-    ArabicPic
+    ArabicPic,
+    Cart,
+    Settings,
+    Loory,
+    Search
 }

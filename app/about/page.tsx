@@ -46,8 +46,6 @@ const page = () => {
     });
   }, []);
 
-
-
   const testimonials = [
     {
       id: 1,
@@ -96,7 +94,7 @@ const page = () => {
 
   // Infinite scroll effect
   useEffect(() => {
-    const scrollContainer = document.getElementById('infinite-scroll');
+    const scrollContainer = document.getElementById("infinite-scroll");
     if (scrollContainer) {
       const scroll = () => {
         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
@@ -105,7 +103,7 @@ const page = () => {
           scrollContainer.scrollLeft += 1;
         }
       };
-      
+
       const interval = setInterval(scroll, 30); // Smooth scroll speed
       return () => clearInterval(interval);
     }
@@ -255,51 +253,50 @@ const page = () => {
       <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
         <div className="max-w-7xl mx-auto">
           <div className="py-[100px]">
-
-          <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
-            Investments & Ventures
-          </button>
+            <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+              Investments & Ventures
+            </button>
           </div>
 
-                     {/* Infinite Scroll Container */}
-           <div className="relative overflow-hidden">
-             <div 
-               id="infinite-scroll"
-               className="flex gap-8 items-center py-8"
-               style={{
-                 width: 'max-content',
-                 animation: 'scroll 30s linear infinite'
-               }}
-             >
-               {/* First set of sponsors */}
-               {sponser.map((sponser, index) => (
-                 <div 
-                   key={`first-${sponser.id}`}
-                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
-                 >
-                   <Image
-                     src={sponser.image}
-                     alt="sponser"
-                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
-                   />
-                 </div>
-               ))}
-               
-               {/* Duplicate set for seamless loop */}
-               {sponser.map((sponser, index) => (
-                 <div 
-                   key={`second-${sponser.id}`}
-                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
-                 >
-                   <Image
-                     src={sponser.image}
-                     alt="sponser"
-                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
-                   />
-                 </div>
-               ))}
-             </div>
-           </div>
+          {/* Infinite Scroll Container */}
+          <div className="relative overflow-hidden">
+            <div
+              id="infinite-scroll"
+              className="flex gap-8 items-center py-8"
+              style={{
+                width: "max-content",
+                animation: "scroll 30s linear infinite",
+              }}
+            >
+              {/* First set of sponsors */}
+              {sponser.map((sponser, index) => (
+                <div
+                  key={`first-${sponser.id}`}
+                  className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
+                >
+                  <Image
+                    src={sponser.image}
+                    alt="sponser"
+                    className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                  />
+                </div>
+              ))}
+
+              {/* Duplicate set for seamless loop */}
+              {sponser.map((sponser, index) => (
+                <div
+                  key={`second-${sponser.id}`}
+                  className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
+                >
+                  <Image
+                    src={sponser.image}
+                    alt="sponser"
+                    className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
