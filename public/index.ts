@@ -34,5 +34,6 @@ export{
     Facebook,
     Twitter,
     YemmarBg,
-    Mainbg
+    Mainbg,
+    ArabicPic
 }

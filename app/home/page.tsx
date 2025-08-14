@@ -14,6 +14,7 @@ import {
   Sponser6,
   YemmarBg,
   Mainbg,
+  ArabicPic,
 } from "@/public";
 import localFont from "next/font/local";
 import Button from "@/components/btn";
@@ -39,14 +40,14 @@ const page = () => {
     AOS.init({
       duration: 1000,
       mirror: true,
-      disable: function() {
+      disable: function () {
         return window.innerWidth < 768;
       },
-      startEvent: 'DOMContentLoaded',
+      startEvent: "DOMContentLoaded",
       offset: 120,
-      delay: 150
+      delay: 150,
     });
-    
+
     // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
@@ -109,16 +110,14 @@ const page = () => {
 
   return (
     <div
-    style={
-      {
+      style={{
         backgroundImage: `url(${Mainbg.src})`,
         backgroundPosition: "bottom",
         backgroundSize: "full",
         backgroundRepeat: "repeat",
-      }
-    }
-    
-    className="min-h-screen  ">
+      }}
+      className="min-h-screen  "
+    >
       <Navbar />
 
       {/* Hero section - Keep animations on all screens */}
@@ -138,7 +137,7 @@ const page = () => {
         >
           <div className="w-full h-full  bg-red-500 flex justify-start items-end">
             <div className="w-full h-full sm:w-[90%] md:w-[85%] flex items-end justify-end lg:w-[80%] py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-6 md:px-8 lg:px-10">
-               <h1
+              <h1
                 className={`${montserrat.className} text-white font-[400] 
               text-[20px] leading-[24px] 
                 sm:text-[28px] sm:leading-[32px] 
@@ -146,13 +145,13 @@ const page = () => {
                 lg:text-[52px] lg:leading-[56px] 
                 xl:text-[62px] xl:leading-[66px] 
                 2xl:text-[70px] 2xl:leading-[72px]`}
-             >
-               <span className="block">From Supermarkets to</span>
-               <span className="block mt-1 sm:mt-2">
-                 Real Estate — Diversified Excellence
-                 <span className="text-yellow-400"> Since 1995.</span>
+              >
+                <span className="block">From Supermarkets to</span>
+                <span className="block mt-1 sm:mt-2">
+                  Real Estate — Diversified Excellence
+                  <span className="text-yellow-400"> Since 1995.</span>
                 </span>
-             </h1> 
+              </h1>
             </div>
           </div>
         </div>
@@ -168,7 +167,9 @@ const page = () => {
             data-aos-mirror="true"
             className="pb-[44px]"
           >
-            <Button className={`px-6  ${montserrat.className} sm:px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200`}>
+            <Button
+              className={`px-6  ${montserrat.className} sm:px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200`}
+            >
               About
             </Button>
           </div>
@@ -187,7 +188,6 @@ const page = () => {
             >
               <span className="text-yellow-500 font-medium">Yemmar Group</span>
               <span className={`text-gray-800   ${montserrat.className} `}>
-         
                 is an example of a business group with diversified investments
                 since 1995 in Saudi Arabia and India.
               </span>
@@ -196,7 +196,9 @@ const page = () => {
             {/* Description */}
             <div>
               {/* First paragraph always visible */}
-              <p className={`text-gray-600 text-[16px] sm:text-[18px] md:text-[22px]  ${montserrat.className} leading-relaxed `}>
+              <p
+                className={`text-gray-600 text-[16px] sm:text-[18px] md:text-[22px]  ${montserrat.className} leading-relaxed `}
+              >
                 With interests in multiple sectors, including supermarkets,
                 restaurants, real estate, plumbing and electrical, restaurants,
                 product businesses, furniture retail stores, hookah essentials
@@ -204,37 +206,59 @@ const page = () => {
               </p>
 
               {/* Content that toggles */}
-              <div className={`space-y-3 sm:space-y-4 transition-all duration-300 ${!isExpanded ? 'max-h-0 overflow-hidden' : 'max-h-[1000px]'}`}>
+              <div
+                className={`space-y-3 sm:space-y-4 transition-all duration-300 ${
+                  !isExpanded ? "max-h-0 overflow-hidden" : "max-h-[1000px]"
+                }`}
+              >
                 <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
                   Yemmar group has established a significant presence in both
-                  countries and has become a well - respected player in the regional
-                  business landscape.
+                  countries and has become a well - respected player in the
+                  regional business landscape.
                 </p>
                 <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  In the supermarket sector, Yemmar Group owns and operates several supermarkets under the name Amana Foodstuff Markets, providing a wide range of products and service to customers across Saudi Arabia. Our plumbing and electrical business is also a
-                  major player in both markets, offering high - quality products and services to both residential and commrcial customers. our product business is involved in the manufacturing and distribution of a variety of milk-based products in the bangalore market.
+                  In the supermarket sector, Yemmar Group owns and operates
+                  several supermarkets under the name Amana Foodstuff Markets,
+                  providing a wide range of products and service to customers
+                  across Saudi Arabia. Our plumbing and electrical business is
+                  also a major player in both markets, offering high - quality
+                  products and services to both residential and commrcial
+                  customers. our product business is involved in the
+                  manufacturing and distribution of a variety of milk-based
+                  products in the bangalore market.
                 </p>
                 <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  Our furniture retail store is the city's largest and also a popular destination for customers
-                  looking for stylish and affordable home furnishings.
+                  Our furniture retail store is the city's largest and also a
+                  popular destination for customers looking for stylish and
+                  affordable home furnishings.
                 </p>
                 <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  Finally, our real estate division has developed and managed a range of commercial and 
-                  residential properties, including office buildings, shopping centres, residential developments, and resort projects.
+                  Finally, our real estate division has developed and managed a
+                  range of commercial and residential properties, including
+                  office buildings, shopping centres, residential developments,
+                  and resort projects.
                 </p>
                 <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed w-full">
-                  Yemmar Group has maintained a strong focus on quality, innovation, and customer service. Our commitment to excellence has helped us build a loyal customer base and establish ourselves as a trusted and respected business group in both Saudi Arabia and India
+                  Yemmar Group has maintained a strong focus on quality,
+                  innovation, and customer service. Our commitment to excellence
+                  has helped us build a loyal customer base and establish
+                  ourselves as a trusted and respected business group in both
+                  Saudi Arabia and India
                 </p>
               </div>
 
               {/* Read More/Less Button */}
               <div className="pt-4">
-                <Button 
+                <Button
                   onClick={() => setIsExpanded(!isExpanded)}
                   className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
                 >
-                  {isExpanded ? 'Read Less' : 'Read More'}
-                  <MoveRight className={`ml-2 w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                  {isExpanded ? "Read Less" : "Read More"}
+                  <MoveRight
+                    className={`ml-2 w-4 h-4 transition-transform duration-200 ${
+                      isExpanded ? "rotate-180" : ""
+                    }`}
+                  />
                 </Button>
               </div>
             </div>
@@ -251,15 +275,16 @@ const page = () => {
                 key={sponser.id}
                 src={sponser.image}
                 alt="sponser"
-                data-aos={window.innerWidth >= 768 ? 
-                  (index % 4 === 0
-                    ? "fade-up"
-                    : index % 4 === 1
-                    ? "fade-down"
-                    : index % 4 === 2
-                    ? "flip-up"
-                    : "flip-down")
-                  : "fade-in" // Simple fade on mobile
+                data-aos={
+                  window.innerWidth >= 768
+                    ? index % 4 === 0
+                      ? "fade-up"
+                      : index % 4 === 1
+                      ? "fade-down"
+                      : index % 4 === 2
+                      ? "flip-up"
+                      : "flip-down"
+                    : "fade-in" // Simple fade on mobile
                 }
                 data-aos-mirror="true"
                 className="transition-all duration-300"
@@ -271,16 +296,18 @@ const page = () => {
 
       {/* Business sector section - Simplified on mobile */}
       <div className="w-full px-2 md:px-3 ">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-6xl flex items-center justify-center md:flex-row flex-col mx-auto">
+          <div className="flex gap-[23px]">
             {/* Left side - Image with overlay */}
-            <div className="flex justify-center items-start md:justify-start">
+            <div className="flex justify-end">
               <div className="rounded-2xl">
                 <Image
                   data-aos={window.innerWidth >= 768 ? "flip-up" : "fade-in"}
                   data-aos-mirror="true"
                   src={SectionOne}
                   alt="section one"
+                  className="object-cover"
+                  
                 />
               </div>
             </div>
@@ -425,6 +452,30 @@ const page = () => {
                 alt="section card"
               />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* arabic section  */}
+      <div className="w-full px-2 py-[150px]">
+        <div className="max-w-6xl  flex w-full mx-auto">
+          <div className="w-full ">
+            <Image
+              src={ArabicPic}
+              alt="arabic pic"
+              className="w-[360px] object-cover"
+            />
+          </div>
+          <div className="w-full flex items-start justify-center ">
+            <p className="text-[22px] font-[400]">
+              Vision 2030: Our Roadmap to the Future Yemmar Group is aligned
+              with Saudi Vision 2030, driving economic diversification, job
+              creation, and sustainable development. Through innovation in
+              retail, construction, logistics, and services, we enhance
+              efficiency and support national progress. Beyond business, we
+              create opportunities, empower communities, and help build a
+              future-ready Saudi Arabia.
+            </p>
           </div>
         </div>
       </div>
