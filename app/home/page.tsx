@@ -121,13 +121,13 @@ const page = () => {
       <Navbar />
 
       {/* Hero section - Keep animations on all screens */}
-      <div className="w-full    px-2 md:px-3">
+      <div className="w-full  z-[-1]  px-2 md:px-3">
         <div
           data-aos="fade-up"
           data-aos-anchor-placement="top-bottom"
           data-aos-mirror="true"
           data-aos-disable="false"
-          className="relative w-full flex h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
+          className="relative w-full flex z-[-1] h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${YemmarBg.src})`,
             backgroundPosition: "bottom",
