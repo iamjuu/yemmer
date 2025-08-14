@@ -25,17 +25,19 @@ const Header = () => {
          once: false,
        })
   }, [])
-  return (
+   return (
     <header className="w-full bg-white px-3 md:px-2">
       <div className="max-w-7xl mx-auto ">
         <div className="flex justify-between  pitems-center pb-[43px]  pt-[37px]">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex w-[198px] h-[72px] items-center  py-2">
+            <Link href="/" className="flex items-center py-2">
                  <Image 
             data-aos="fade-up"
             data-aos-delay={100}
-            src={Logo} alt="logo" width={198} height={72} />
+            src={Logo} alt="logo" 
+            className="w-24 h-8 sm:w-32 sm:h-10 md:w-40 md:h-12 lg:w-[198px] lg:h-[72px]"
+            width={198} height={72} />
             </Link>
           </div>
 
@@ -87,7 +89,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+                {/* Mobile Menu */}
       {isMenuOpen && (
         <>
           {/* Backdrop overlay with blur */}
@@ -95,7 +97,16 @@ const Header = () => {
             className="fixed inset-0 bg-black/20 backdrop-blur-sm md:hidden" 
             onClick={() => setIsMenuOpen(false)}
           />
-          <div className="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg z-50">
+                     <div className="md:hidden bg-white border-t border-gray-100 fixed top-4 left-0 w-full shadow-lg z-50">
+            {/* Close button at the top */}
+            <div className="flex justify-end  border-b border-gray-100">
+              <Button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 rounded-[8px] text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              >
+                <FontAwesomeIcon icon={faXmark} className="h-5 w-5" />
+              </Button>
+            </div>
             <nav className="flex flex-col space-y-2 px-4 pt-2 pb-4">
               {navLinks.map((link, index) => (
                 <Link
