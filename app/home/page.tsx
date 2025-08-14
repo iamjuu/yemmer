@@ -12,6 +12,7 @@ import {
   Sponser4,
   Sponser5,
   Sponser6,
+  Sponser7,
   YemmarBg,
   Mainbg,
   ArabicPic,
@@ -95,6 +96,10 @@ const page = () => {
     {
       id: 6,
       image: Sponser6,
+    },
+    {
+      id: 7,
+      image: Sponser7,
     },
   ];
 

@@ -1,9 +1,9 @@
 "use client";
 
-import YemmarFooter from '@/components/footer'
-import { 
-  ArabicPic, 
-  Mainbg, 
+import YemmarFooter from "@/components/footer";
+import {
+  ArabicPic,
+  Mainbg,
   YemmarBg,
   SectionCard,
   SectionOne,
@@ -13,12 +13,13 @@ import {
   Sponser4,
   Sponser5,
   Sponser6,
-} from '@/public'
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import Navbar from "../../components/navbar"
+  Sponser7,
+} from "@/public";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/navbar";
 import localFont from "next/font/local";
-import Button from '@/components/btn'
+import Button from "@/components/btn";
 import { MoveRight } from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
@@ -44,6 +45,8 @@ const page = () => {
       delay: 150,
     });
   }, []);
+
+
 
   const testimonials = [
     {
@@ -85,11 +88,31 @@ const page = () => {
       id: 6,
       image: Sponser6,
     },
+    {
+      id: 7,
+      image: Sponser7,
+    },
   ];
 
+  // Infinite scroll effect
+  useEffect(() => {
+    const scrollContainer = document.getElementById('infinite-scroll');
+    if (scrollContainer) {
+      const scroll = () => {
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
+        } else {
+          scrollContainer.scrollLeft += 1;
+        }
+      };
+      
+      const interval = setInterval(scroll, 30); // Smooth scroll speed
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   return (
-     <div
+    <div
       style={{
         backgroundImage: `url(${Mainbg.src})`,
         backgroundPosition: "bottom",
@@ -129,7 +152,10 @@ const page = () => {
                 <span className="block">From Supermarkets to</span>
                 <span className="block mt-1 sm:mt-2">
                   Real Estate — Diversified Excellence
-                  <span className="text-yellow-400 text-[24px] sm:text-[32px] md:text-[42px] lg:text-[52px] xl:text-[62px] 2xl:text-[70px] font-[500]"> Since 1995.</span>
+                  <span className="text-yellow-400 text-[24px] sm:text-[32px] md:text-[42px] lg:text-[52px] xl:text-[62px] 2xl:text-[70px] font-[500]">
+                    {" "}
+                    Since 1995.
+                  </span>
                 </span>
               </h1>
             </div>
@@ -138,7 +164,7 @@ const page = () => {
       </div>
 
       {/* About section - Only animate on desktop */}
-      <div className="w-full pt-[60px] px-2 md:px-3 md:py-[150px]">
+      <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
         <div className="max-w-6xl mx-auto">
           {/* About Button */}
           <div
@@ -175,7 +201,6 @@ const page = () => {
 
             {/* Description */}
             <div>
-              {/* First paragraph always visible */}
               <p
                 className={`text-gray-600 text-[16px] sm:text-[18px] md:text-[22px]  ${montserrat.className} leading-relaxed `}
               >
@@ -185,12 +210,7 @@ const page = () => {
                 retail.
               </p>
 
-              {/* Content that toggles */}
-              <div
-                className={`space-y-3 sm:space-y-4 transition-all duration-300 ${
-                  !isExpanded ? "max-h-0 overflow-hidden" : "max-h-[1000px]"
-                }`}
-              >
+              <div className="space-y-3 sm:space-y-4">
                 <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
                   Yemmar group has established a significant presence in both
                   countries and has become a well - respected player in the
@@ -226,21 +246,6 @@ const page = () => {
                   Saudi Arabia and India
                 </p>
               </div>
-
-              {/* Read More/Less Button */}
-              <div className="pt-4">
-                <Button
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
-                >
-                  {isExpanded ? "Read Less" : "Read More"}
-                  <MoveRight
-                    className={`ml-2 w-4 h-4 transition-transform duration-200 ${
-                      isExpanded ? "rotate-180" : ""
-                    }`}
-                  />
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -249,39 +254,61 @@ const page = () => {
       {/* Sponsor section - Simplified animation on mobile */}
       <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-end justify-items-center">
-            {sponser.map((sponser, index) => (
-              <Image
-                key={sponser.id}
-                src={sponser.image}
-                alt="sponser"
-                data-aos={
-                  window.innerWidth >= 768
-                    ? index % 4 === 0
-                      ? "fade-up"
-                      : index % 4 === 1
-                      ? "fade-down"
-                      : index % 4 === 2
-                      ? "flip-up"
-                      : "flip-down"
-                    : "fade-in" // Simple fade on mobile
-                }
-                data-aos-mirror="true"
-                className="transition-all duration-300"
-              />
-            ))}
+          <div className="py-[100px]">
+
+          <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+            Investments & Ventures
+          </button>
           </div>
+
+                     {/* Infinite Scroll Container */}
+           <div className="relative overflow-hidden">
+             <div 
+               id="infinite-scroll"
+               className="flex gap-8 items-center py-8"
+               style={{
+                 width: 'max-content',
+                 animation: 'scroll 30s linear infinite'
+               }}
+             >
+               {/* First set of sponsors */}
+               {sponser.map((sponser, index) => (
+                 <div 
+                   key={`first-${sponser.id}`}
+                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
+                 >
+                   <Image
+                     src={sponser.image}
+                     alt="sponser"
+                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                   />
+                 </div>
+               ))}
+               
+               {/* Duplicate set for seamless loop */}
+               {sponser.map((sponser, index) => (
+                 <div 
+                   key={`second-${sponser.id}`}
+                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
+                 >
+                   <Image
+                     src={sponser.image}
+                     alt="sponser"
+                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                   />
+                 </div>
+               ))}
+             </div>
+           </div>
         </div>
       </div>
-
-
 
       {/* Footer section */}
       <div className="w-full">
         <YemmarFooter />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

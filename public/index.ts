@@ -8,6 +8,7 @@ import Sponser3 from "./sponesers/sponser3.png"
 import Sponser4 from "./sponesers/sponser4.png"
 import Sponser5 from "./sponesers/sponser5.png"
 import Sponser6 from "./sponesers/sponser6.png"
+import Sponser7 from "./sponesers/sponers7.svg"
 import FooterLogo from "./image/footerlogo.png"
 import Instagram from "./icons/instagram logo.png"
 import Linkedin from "./icons/linkedin logo.png"
@@ -28,6 +29,7 @@ export{
     Sponser4,
     Sponser5,
     Sponser6,
+    Sponser7,
     FooterLogo,
     Instagram,
     Linkedin,
