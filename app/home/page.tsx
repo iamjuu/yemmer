@@ -12,6 +12,7 @@ import {
   Sponser4,
   Sponser5,
   Sponser6,
+  Sponser7,
   YemmarBg,
   Mainbg,
   ArabicPic,
@@ -25,6 +26,7 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect, useState } from "react";
 import Loader from "@/components/btn/loader";
+import Link from "next/link";
 
 const montserrat = localFont({
   src: "../../font/Montserrat/Montserrat-VariableFont_wght.ttf",
@@ -205,61 +207,21 @@ const page = () => {
                 retail.
               </p>
 
-              {/* Content that toggles */}
-              <div
-                className={`space-y-3 sm:space-y-4 transition-all duration-300 ${
-                  !isExpanded ? "max-h-0 overflow-hidden" : "max-h-[1000px]"
-                }`}
-              >
-                <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  Yemmar group has established a significant presence in both
-                  countries and has become a well - respected player in the
-                  regional business landscape.
-                </p>
-                <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  In the supermarket sector, Yemmar Group owns and operates
-                  several supermarkets under the name Amana Foodstuff Markets,
-                  providing a wide range of products and service to customers
-                  across Saudi Arabia. Our plumbing and electrical business is
-                  also a major player in both markets, offering high - quality
-                  products and services to both residential and commrcial
-                  customers. our product business is involved in the
-                  manufacturing and distribution of a variety of milk-based
-                  products in the bangalore market.
-                </p>
-                <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  Our furniture retail store is the city's largest and also a
-                  popular destination for customers looking for stylish and
-                  affordable home furnishings.
-                </p>
-                <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed ">
-                  Finally, our real estate division has developed and managed a
-                  range of commercial and residential properties, including
-                  office buildings, shopping centres, residential developments,
-                  and resort projects.
-                </p>
-                <p className="text-gray-600 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed w-full">
-                  Yemmar Group has maintained a strong focus on quality,
-                  innovation, and customer service. Our commitment to excellence
-                  has helped us build a loyal customer base and establish
-                  ourselves as a trusted and respected business group in both
-                  Saudi Arabia and India
-                </p>
-              </div>
 
               {/* Read More/Less Button */}
               <div className="pt-4">
+                <Link href='/about'>
                 <Button
                   onClick={() => setIsExpanded(!isExpanded)}
                   className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
                 >
-                  {isExpanded ? "Read Less" : "Read More"}
+             Read More
                   <MoveRight
-                    className={`ml-2 w-4 h-4 transition-transform duration-200 ${
-                      isExpanded ? "rotate-180" : ""
-                    }`}
+                    className="ml-2 w-4 h-4 transition-transform duration-200 
+    " 
                   />
                 </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -269,28 +231,44 @@ const page = () => {
       {/* Sponsor section - Simplified animation on mobile */}
       <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-end justify-items-center">
-            {sponser.map((sponser, index) => (
-              <Image
-                key={sponser.id}
-                src={sponser.image}
-                alt="sponser"
-                data-aos={
-                  window.innerWidth >= 768
-                    ? index % 4 === 0
-                      ? "fade-up"
-                      : index % 4 === 1
-                      ? "fade-down"
-                      : index % 4 === 2
-                      ? "flip-up"
-                      : "flip-down"
-                    : "fade-in" // Simple fade on mobile
-                }
-                data-aos-mirror="true"
-                className="transition-all duration-300"
-              />
-            ))}
-          </div>
+        <div className="relative overflow-hidden">
+             <div 
+               id="infinite-scroll"
+               className="flex gap-8 items-center py-8"
+               style={{
+                 width: 'max-content',
+                 animation: 'scroll 30s linear infinite'
+               }}
+             >
+               {/* First set of sponsors */}
+               {sponser.map((sponser, index) => (
+                 <div 
+                   key={`first-${sponser.id}`}
+                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
+                 >
+                   <Image
+                     src={sponser.image}
+                     alt="sponser"
+                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                   />
+                 </div>
+               ))}
+               
+               {/* Duplicate set for seamless loop */}
+               {sponser.map((sponser, index) => (
+                 <div 
+                   key={`second-${sponser.id}`}
+                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
+                 >
+                   <Image
+                     src={sponser.image}
+                     alt="sponser"
+                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                   />
+                 </div>
+               ))}
+             </div>
+           </div>
         </div>
       </div>
 
@@ -313,7 +291,7 @@ const page = () => {
             </div>
 
             {/* Right side - Statistics cards */}
-            <div className="flex flex-col space-y-6 h-full">
+            <div className="flex flex-col space-y-6 ">
               {/* Total Retail Space Card */}
               <div className="flex flex-col justify-center items-start rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm border border-gray-100 flex-1">
                 <div

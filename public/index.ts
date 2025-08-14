@@ -2,12 +2,13 @@ import Logo from "./image/logo.png"
 import Banner from "./image/banner.png"
 import SectionOne from "./image/section1.png"
 import SectionCard from "./image/sectioncard.png"
-import Sponser1 from "./sponesers/sponser1.png"
-import Sponser2 from "./sponesers/sponser2.png"
-import Sponser3 from "./sponesers/sponser3.png"
-import Sponser4 from "./sponesers/sponser4.png"
-import Sponser5 from "./sponesers/sponser5.png"
-import Sponser6 from "./sponesers/sponser6.png"
+import Sponser1 from "./sponesers/spaoners1.svg"
+import Sponser2 from "./sponesers/spaoners2.svg"
+import Sponser3 from "./sponesers/spaoners3.svg"
+import Sponser4 from "./sponesers/spaoners4.svg"
+import Sponser5 from "./sponesers/spaoners5.svg"
+import Sponser6 from "./sponesers/spaoners6.svg"
+import Sponser7 from "./sponesers/sponers7.svg"
 import FooterLogo from "./image/footerlogo.png"
 import Instagram from "./icons/instagram logo.png"
 import Linkedin from "./icons/linkedin logo.png"
@@ -16,6 +17,19 @@ import Twitter from "./icons/List → Item → Link.png"
 import YemmarBg from "./image/yemmarbg.svg"
 import ArabicPic from "./image/arabic.svg"
 import Mainbg from "./image/mainbg.svg"
+
+// business page icons
+import Cart from "./icons/shopping-cart.svg"
+import Settings from "./icons/settings.svg"
+import Loory from "./icons/truck.svg"
+import Search from "./icons/globe.svg"
+
+// images 
+import BusiessIMage1 from "./image/business/Frame 1000003434.svg"
+import BusinessImage2 from "./image/business/Frame 1000003435.svg"
+import BusinessImage3 from "./image/business/Frame 1000003436.svg"
+import BusinessImage4 from "./image/business/Frame 1000003437.svg"
+
 
 export{
     Logo,
@@ -28,6 +42,7 @@ export{
     Sponser4,
     Sponser5,
     Sponser6,
+    Sponser7,
     FooterLogo,
     Instagram,
     Linkedin,
@@ -35,5 +50,13 @@ export{
     Twitter,
     YemmarBg,
     Mainbg,
-    ArabicPic
+    ArabicPic,
+    Cart,
+    Settings,
+    Loory,
+    Search,
+    BusiessIMage1,
+    BusinessImage2,
+    BusinessImage3,
+    BusinessImage4
 }
