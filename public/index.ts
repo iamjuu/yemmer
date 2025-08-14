@@ -17,10 +17,19 @@ import Twitter from "./icons/List → Item → Link.png"
 import YemmarBg from "./image/yemmarbg.svg"
 import ArabicPic from "./image/arabic.svg"
 import Mainbg from "./image/mainbg.svg"
+
+// business page icons
 import Cart from "./icons/shopping-cart.svg"
 import Settings from "./icons/settings.svg"
 import Loory from "./icons/truck.svg"
-import Search from "./icons/shopping-cart.svg"
+import Search from "./icons/globe.svg"
+
+// images 
+import BusiessIMage1 from "./image/business/Frame 1000003434.svg"
+import BusinessImage2 from "./image/business/Frame 1000003435.svg"
+import BusinessImage3 from "./image/business/Frame 1000003436.svg"
+import BusinessImage4 from "./image/business/Frame 1000003437.svg"
+
 
 export{
     Logo,
@@ -45,5 +54,9 @@ export{
     Cart,
     Settings,
     Loory,
-    Search
+    Search,
+    BusiessIMage1,
+    BusinessImage2,
+    BusinessImage3,
+    BusinessImage4
 }
