@@ -121,7 +121,7 @@ const page = () => {
       <Navbar />
 
       {/* Hero section - Keep animations on all screens */}
-      <div className="w-full    px-2 md:px-0">
+      <div className="w-full    px-2 md:px-3">
         <div
           data-aos="fade-up"
           data-aos-anchor-placement="top-bottom"
@@ -135,7 +135,7 @@ const page = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="w-full h-full  bg-red-500 flex justify-start items-end">
+          <div className="w-full   flex ">
             <div className="w-full h-full sm:w-[90%] md:w-[85%] flex items-end justify-end lg:w-[80%] py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-6 md:px-8 lg:px-10">
               <h1
                 className={`${montserrat.className} text-white font-[400] 
@@ -149,7 +149,7 @@ const page = () => {
                 <span className="block">From Supermarkets to</span>
                 <span className="block mt-1 sm:mt-2">
                   Real Estate — Diversified Excellence
-                  <span className="text-yellow-400"> Since 1995.</span>
+                  <span className="text-yellow-400 text-[24px] sm:text-[32px] md:text-[42px] lg:text-[52px] xl:text-[62px] 2xl:text-[70px] font-[500]"> Since 1995.</span>
                 </span>
               </h1>
             </div>
@@ -158,7 +158,7 @@ const page = () => {
       </div>
 
       {/* About section - Only animate on desktop */}
-      <div className="w-full pt[60px] md:py-[150px]">
+      <div className="w-full pt-[60px] px-2 md:px-3 md:py-[150px]">
         <div className="max-w-6xl mx-auto">
           {/* About Button */}
           <div
@@ -297,7 +297,7 @@ const page = () => {
       {/* Business sector section - Simplified on mobile */}
       <div className="w-full px-2 md:px-3 ">
         <div className="max-w-6xl flex items-center justify-center md:flex-row flex-col mx-auto">
-          <div className="flex gap-[23px]">
+          <div className="flex md:flex-row flex-col gap-[23px]">
             {/* Left side - Image with overlay */}
             <div className="flex justify-end">
               <div className="rounded-2xl">
@@ -387,7 +387,7 @@ const page = () => {
       </div>
 
       {/* Our business section - Simplified on mobile */}
-      <div className="w-full px-2 py-[150px]">
+      <div className="w-full px-2  py-[60px] md:py-[150px]">
         <div className="max-w-6xl mx-auto">
           {/* Testimonials Grid */}
           <div className="flex flex-col md:flex-row md:justify-between md:gap-10 gap-0">
@@ -458,7 +458,7 @@ const page = () => {
 
       {/* arabic section  */}
       <div className="w-full px-2 py-[150px]">
-        <div className="max-w-6xl  flex w-full mx-auto">
+        <div className="max-w-6xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
           <div className="w-full ">
             <Image
               src={ArabicPic}
