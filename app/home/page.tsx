@@ -267,7 +267,7 @@ const page = () => {
       </div>
 
       {/* Sponsor section - Simplified animation on mobile */}
-      <div className="w-full px-2 md:px-3 pb-[150px]">
+      <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-end justify-items-center">
             {sponser.map((sponser, index) => (
