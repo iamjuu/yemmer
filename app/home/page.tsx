@@ -313,7 +313,7 @@ const page = () => {
             </div>
 
             {/* Right side - Statistics cards */}
-            <div className="flex flex-col space-y-6 h-full">
+            <div className="flex flex-col space-y-6 ">
               {/* Total Retail Space Card */}
               <div className="flex flex-col justify-center items-start rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm border border-gray-100 flex-1">
                 <div
