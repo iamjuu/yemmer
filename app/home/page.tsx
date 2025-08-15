@@ -118,7 +118,7 @@ const page = () => {
         backgroundSize: "full",
         backgroundRepeat: "repeat",
       }}
-      className="min-h-screen  "
+      className="min-h-screen  px-2 "
     >
       <Navbar />
 
@@ -129,7 +129,7 @@ const page = () => {
           data-aos-anchor-placement="top-bottom"
           data-aos-mirror="true"
           data-aos-disable="false"
-          className="relative w-full flex z-[-1] h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
+          className="relative w-full flex  h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${YemmarBg.src})`,
             backgroundPosition: "bottom",
@@ -137,7 +137,10 @@ const page = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="w-full   flex ">
+          {/* Black gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl"></div>
+
+          <div className="w-full   flex relative z-10">
             <div className="w-full h-full sm:w-[90%] md:w-[85%] flex items-end justify-end lg:w-[80%] py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-6 md:px-8 lg:px-10">
               <h1
                 className={`${montserrat.className} text-white font-[400] 
@@ -151,7 +154,10 @@ const page = () => {
                 <span className="block">From Supermarkets to</span>
                 <span className="block mt-1 sm:mt-2">
                   Real Estate — Diversified Excellence
-                  <span className="text-yellow-400 text-[24px] sm:text-[32px] md:text-[42px] lg:text-[52px] xl:text-[62px] 2xl:text-[70px] font-[500]"> Since 1995.</span>
+                  <span className="text-yellow-400 text-[24px] sm:text-[32px] md:text-[42px] lg:text-[52px] xl:text-[62px] 2xl:text-[70px] font-[500]">
+                    {" "}
+                    Since 1995.
+                  </span>
                 </span>
               </h1>
             </div>
@@ -207,20 +213,19 @@ const page = () => {
                 retail.
               </p>
 
-
               {/* Read More/Less Button */}
               <div className="pt-4">
-                <Link href='/about'>
-                <Button
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
-                >
-             Read More
-                  <MoveRight
-                    className="ml-2 w-4 h-4 transition-transform duration-200 
-    " 
-                  />
-                </Button>
+                <Link href="/about">
+                  <Button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="inline-flex gap items-center text-gray-700 font-medium hover:text-gray-900 transition-colors duration-200"
+                  >
+                    Read More
+                    <MoveRight
+                      className="ml-2 w-4 h-4 transition-transform duration-200 
+    "
+                    />
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -229,52 +234,52 @@ const page = () => {
       </div>
 
       {/* Sponsor section - Simplified animation on mobile */}
-      <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
-        <div className="max-w-7xl mx-auto">
-        <div className="relative overflow-hidden">
-             <div 
-               id="infinite-scroll"
-               className="flex gap-8 items-center py-8"
-               style={{
-                 width: 'max-content',
-                 animation: 'scroll 30s linear infinite'
-               }}
-             >
-               {/* First set of sponsors */}
-               {sponser.map((sponser, index) => (
-                 <div 
-                   key={`first-${sponser.id}`}
-                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
-                 >
-                   <Image
-                     src={sponser.image}
-                     alt="sponser"
-                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
-                   />
-                 </div>
-               ))}
-               
-               {/* Duplicate set for seamless loop */}
-               {sponser.map((sponser, index) => (
-                 <div 
-                   key={`second-${sponser.id}`}
-                   className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
-                 >
-                   <Image
-                     src={sponser.image}
-                     alt="sponser"
-                     className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
-                   />
-                 </div>
-               ))}
-             </div>
-           </div>
+      <div className="w-full px-2 md:px-3 md:pt-[150px] pt-[50px] pb-[50px] md:pb-[150px]">
+        <div className="w-full mx-auto">
+          <div className="relative overflow-hidden">
+            <div
+              id="infinite-scroll"
+              className="flex gap-[98px] items-center py-8"
+              style={{
+                width: "max-content",
+                animation: "scroll 30s linear infinite",
+              }}
+            >
+              {/* First set of sponsors */}
+              {sponser.map((sponser, index) => (
+                <div
+                  key={`first-${sponser.id}`}
+                  className="flex-shrink-0 w-32 h-[78px] md:w-40 md:h-[88px] flex justify-center items-center"
+                >
+                  <Image
+                    src={sponser.image}
+                    alt="sponser"
+                    className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                  />
+                </div>
+              ))}
+
+              {/* Duplicate set for seamless loop */}
+              {sponser.map((sponser, index) => (
+                <div
+                  key={`second-${sponser.id}`}
+                  className="flex-shrink-0 w-32 h-[78px] md:w-40 md:h-[78px] flex justify-center items-center"
+                >
+                  <Image
+                    src={sponser.image}
+                    alt="sponser"
+                    className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Business sector section - Simplified on mobile */}
       <div className="w-full px-2 md:px-3 ">
-        <div className="max-w-6xl flex items-center justify-center md:flex-row flex-col mx-auto">
+        <div className="max-w-6xl flex items-center justify-between md:flex-row flex-col mx-auto">
           <div className="flex md:flex-row flex-col gap-[23px]">
             {/* Left side - Image with overlay */}
             <div className="flex justify-end">
@@ -285,7 +290,6 @@ const page = () => {
                   src={SectionOne}
                   alt="section one"
                   className="object-cover"
-                  
                 />
               </div>
             </div>
@@ -293,11 +297,11 @@ const page = () => {
             {/* Right side - Statistics cards */}
             <div className="flex flex-col space-y-6 ">
               {/* Total Retail Space Card */}
-              <div className="flex flex-col justify-center items-start rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm border border-gray-100 flex-1">
+              <div className="flex flex-col   w-full  md:max-w-[593px] max-w-full justify-center items-start rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm border border-gray-100 flex-1">
                 <div
                   data-aos="flip-down"
                   data-aos-mirror="true"
-                  className="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-800 mb-2"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light text-gray-800 mb-1 sm:mb-2"
                 >
                   30000+{" "}
                   <span
@@ -311,7 +315,7 @@ const page = () => {
                 <div
                   data-aos="fade-up"
                   data-aos-mirror="true"
-                  className="text-gray-500 text-base sm:text-lg"
+                  className="text-gray-500 text-sm sm:text-base md:text-lg"
                 >
                   Total Retail Space
                 </div>
@@ -364,6 +368,30 @@ const page = () => {
         </div>
       </div>
 
+      {/* arabic section  */}
+      <div className="w-full px-2 py-[50px] md:py-[150px]">
+        <div className="max-w-6xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
+          <div className="w-full  items-center justify-center flex">
+            <Image
+              src={ArabicPic}
+              alt="arabic pic"
+              className="  w-[200px] md:w-[360px] object-cover"
+            />
+          </div>
+          <div className="w-full flex items-start justify-center ">
+            <p className=" text-[14px] md:text-[22px] font-[400]">
+              Vision 2030: Our Roadmap to the Future Yemmar Group is aligned
+              with Saudi Vision 2030, driving economic diversification, job
+              creation, and sustainable development. Through innovation in
+              retail, construction, logistics, and services, we enhance
+              efficiency and support national progress. Beyond business, we
+              create opportunities, empower communities, and help build a
+              future-ready Saudi Arabia.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Our business section - Simplified on mobile */}
       <div className="w-full px-2  py-[60px] md:py-[150px]">
         <div className="max-w-6xl mx-auto">
@@ -391,7 +419,7 @@ const page = () => {
                 data-aos="fade-up"
                 data-aos-delay={300}
                 data-aos-mirror="true"
-                className="text-sm md:text-base text-gray-700 leading-relaxed mb-12 sm:mb-16"
+                className="text-[14px] md:text-[22px] text-gray-700 leading-relaxed mb-12 sm:mb-16"
               >
                 {testimonials[0].text}
               </p>
@@ -434,32 +462,8 @@ const page = () => {
         </div>
       </div>
 
-      {/* arabic section  */}
-      <div className="w-full px-2 py-[150px]">
-        <div className="max-w-6xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
-          <div className="w-full ">
-            <Image
-              src={ArabicPic}
-              alt="arabic pic"
-              className="w-[360px] object-cover"
-            />
-          </div>
-          <div className="w-full flex items-start justify-center ">
-            <p className="text-[22px] font-[400]">
-              Vision 2030: Our Roadmap to the Future Yemmar Group is aligned
-              with Saudi Vision 2030, driving economic diversification, job
-              creation, and sustainable development. Through innovation in
-              retail, construction, logistics, and services, we enhance
-              efficiency and support national progress. Beyond business, we
-              create opportunities, empower communities, and help build a
-              future-ready Saudi Arabia.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Footer section */}
-      <div className="w-full">
+      <div className="w-full px-2  mb-[10px] md:mb-[76px]">
         <YemmarFooter />
       </div>
     </div>
