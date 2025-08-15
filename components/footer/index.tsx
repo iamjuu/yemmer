@@ -26,7 +26,7 @@ export default function YemmarFooter() {
           
           {/* Logo Section */}
           <div className="w-full md:w-[70%] flex justify-start">
-            <div className='w-[250px]'>
+            <div className='w-[150px] md:w-[250px]'>
             <Image src={FooterLogo} className="" alt="logo" />
 
             </div>

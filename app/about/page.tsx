@@ -122,13 +122,13 @@ const page = () => {
       <Navbar />
 
       {/* Hero section - Keep animations on all screens */}
-      <div className="w-full  z-[-1]  px-2 md:px-3">
+      <div className="w-full    px-2 md:px-3">
         <div
           data-aos="fade-up"
           data-aos-anchor-placement="top-bottom"
           data-aos-mirror="true"
           data-aos-disable="false"
-          className="relative w-full flex z-[-1] h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
+          className="relative w-full flex  h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
           style={{
             backgroundImage: `url(${YemmarBg.src})`,
             backgroundPosition: "bottom",
@@ -250,9 +250,9 @@ const page = () => {
       </div>
 
       {/* Sponsor section - Simplified animation on mobile */}
-      <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
+      <div className="w-full px-2 md:px-3  pt-[25px] md:pt-[150px]  mb-[50px] md:mb-[150px]">
         <div className="max-w-7xl mx-auto">
-          <div className="py-[100px]">
+          <div className=" py-[50px] md:py-[100px]">
             <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
               Investments & Ventures
             </button>
