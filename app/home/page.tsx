@@ -279,10 +279,10 @@ const page = () => {
 
       {/* Business sector section - Simplified on mobile */}
       <div className="w-full px-2 md:px-3 ">
-        <div className="max-w-6xl flex items-center justify-between md:flex-row flex-col mx-auto">
-          <div className="flex md:flex-row flex-col gap-[23px]">
+        <div className="max-w-6xl flex items-center justify-center md:flex-row flex-col mx-auto">
+          <div className="flex md:flex-row flex-col w-full justify-between  gap-[23px]">
             {/* Left side - Image with overlay */}
-            <div className="flex justify-end">
+            <div className="flex justify-end  w-[40%]">
               <div className="rounded-2xl">
                 <Image
                   data-aos={window.innerWidth >= 768 ? "flip-up" : "fade-in"}
@@ -295,9 +295,9 @@ const page = () => {
             </div>
 
             {/* Right side - Statistics cards */}
-            <div className="flex flex-col space-y-6 ">
+            <div className="flex flex-col space-y-6  w-[60%]">
               {/* Total Retail Space Card */}
-              <div className="flex flex-col   w-full  md:max-w-[593px] max-w-full justify-center items-start rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm border border-gray-100 flex-1">
+              <div className="flex flex-col   w-full  md:max-w-[693px] max-w-full justify-center items-start rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm border border-gray-100 flex-1">
                 <div
                   data-aos="flip-down"
                   data-aos-mirror="true"
@@ -371,11 +371,11 @@ const page = () => {
       {/* arabic section  */}
       <div className="w-full px-2 py-[50px] md:py-[150px]">
         <div className="max-w-6xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
-          <div className="w-full  items-center justify-center flex">
+          <div className="w-full  md:items-start  items-center justify-center md:justify-start flex">
             <Image
               src={ArabicPic}
               alt="arabic pic"
-              className="  w-[200px] md:w-[360px] object-cover"
+              className="  w-[200px] md:w-[450px] object-cover"
             />
           </div>
           <div className="w-full flex items-start justify-center ">
