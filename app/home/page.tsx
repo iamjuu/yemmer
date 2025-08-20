@@ -25,7 +25,6 @@ import YemmarFooter from "@/components/footer";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect, useState } from "react";
-import Loader from "@/components/btn/loader";
 import Link from "next/link";
 
 const montserrat = localFont({
@@ -36,8 +35,19 @@ const montserrat = localFont({
 // NOTE: The following types and data are mocked to fix compilation error
 
 const page = () => {
-  const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    // Set initial screen size
+    setIsMobile(window.innerWidth < 768);
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
     // Initialize AOS with responsive settings
     AOS.init({
       duration: 1000,
@@ -50,12 +60,7 @@ const page = () => {
       delay: 150,
     });
 
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 100);
-
-    return () => clearTimeout(timer);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const testimonials = [
@@ -101,14 +106,6 @@ const page = () => {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader />
-      </div>
-    );
-  }
 
   return (
     <div
@@ -166,7 +163,7 @@ const page = () => {
       </div>
 
       {/* About section - Only animate on desktop */}
-      <div className="w-full pt-[60px] px-2 md:px-3 md:py-[150px]">
+      <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
         <div className="max-w-6xl mx-auto">
           {/* About Button */}
           <div
@@ -282,10 +279,10 @@ const page = () => {
         <div className="max-w-6xl flex items-center justify-center md:flex-row flex-col mx-auto">
           <div className="flex md:flex-row flex-col w-full justify-between  gap-[23px]">
             {/* Left side - Image with overlay */}
-            <div className="flex justify-end  w-[40%]">
+            <div className="flex justify-center  w-full md:w-[40%]">
               <div className="rounded-2xl">
                 <Image
-                  data-aos={window.innerWidth >= 768 ? "flip-up" : "fade-in"}
+                  data-aos={!isMobile ? "flip-up" : "fade-in"}
                   data-aos-mirror="true"
                   src={SectionOne}
                   alt="section one"
@@ -295,7 +292,7 @@ const page = () => {
             </div>
 
             {/* Right side - Statistics cards */}
-            <div className="flex flex-col space-y-6  w-[60%]">
+            <div className="flex flex-col space-y-6   w-full md:w-[60%]">
               {/* Total Retail Space Card */}
               <div className="flex flex-col   w-full  md:max-w-[693px] max-w-full justify-center items-start rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm border border-gray-100 flex-1">
                 <div
@@ -369,7 +366,7 @@ const page = () => {
       </div>
 
       {/* arabic section  */}
-      <div className="w-full px-2 py-[50px] md:py-[150px]">
+      <div className="w-full px-2 py-[50px] md:pt-[150px]">
         <div className="max-w-6xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
           <div className="w-full  md:items-start  items-center justify-center md:justify-start flex">
             <Image
@@ -399,7 +396,7 @@ const page = () => {
           <div className="flex flex-col md:flex-row md:justify-between md:gap-10 gap-0">
             {/* CMD Message */}
             <div
-              data-aos={window.innerWidth >= 768 ? "fade-up" : "fade-in"}
+              data-aos={!isMobile ? "fade-up" : "fade-in"}
               data-aos-delay={100}
               data-aos-mirror="true"
               key={testimonials[0].id}
