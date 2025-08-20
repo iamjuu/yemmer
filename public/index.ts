@@ -32,7 +32,9 @@ import BusinessImage2 from "./image/business/Frame 1000003435.svg"
 import BusinessImage3 from "./image/business/Frame 1000003436.svg"
 import BusinessImage4 from "./image/business/Frame 1000003437.svg"
 
-
+// second-page 
+import Vession from "./image/vesion.svg"
+import Mission from "./image/mission.svg"
 export{
     Logo,
     Banner,
@@ -61,5 +63,7 @@ export{
     BusinessImage2,
     BusinessImage3,
     BusinessImage4,
-    Banner2
+    Banner2,
+    Vession,
+    Mission
 }
