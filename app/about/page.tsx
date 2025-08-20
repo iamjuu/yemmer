@@ -14,6 +14,7 @@ import {
   Sponser5,
   Sponser6,
   Sponser7,
+  Banner2
 } from "@/public";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -31,6 +32,35 @@ const montserrat = localFont({
 
 const page = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Array of background images for the carousel
+  const carouselImages = [
+    Banner2,
+    YemmarBg,
+  ];
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
+  // Manual navigation
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+  };
 
   useEffect(() => {
     // Initialize AOS with responsive settings
@@ -92,22 +122,6 @@ const page = () => {
     },
   ];
 
-  // Infinite scroll effect
-  useEffect(() => {
-    const scrollContainer = document.getElementById("infinite-scroll");
-    if (scrollContainer) {
-      const scroll = () => {
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          scrollContainer.scrollLeft = 0;
-        } else {
-          scrollContainer.scrollLeft += 1;
-        }
-      };
-
-      const interval = setInterval(scroll, 30); // Smooth scroll speed
-      return () => clearInterval(interval);
-    }
-  }, []);
 
   return (
     <div
@@ -122,21 +136,52 @@ const page = () => {
       <Navbar />
 
       {/* Hero section - Keep animations on all screens */}
-      <div className="w-full    px-2 md:px-3">
+      <div className="w-full  z-[-1]  px-2 md:px-3">
         <div
           data-aos="fade-up"
           data-aos-anchor-placement="top-bottom"
           data-aos-mirror="true"
           data-aos-disable="false"
           className="relative w-full flex  h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
-          style={{
-            backgroundImage: `url(${YemmarBg.src})`,
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
         >
-          <div className="w-full   flex ">
+          {/* Carousel Background */}
+          <div className="absolute inset-0 overflow-hidden">
+            {carouselImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                  backgroundImage: `url(${image.src})`,
+                  backgroundPosition: "bottom",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Carousel Navigation Dots */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+            {carouselImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-white scale-125' 
+                    : 'bg-white/40 hover:bg-white/75'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Black gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl"></div>
+
+          <div className="w-full   flex relative z-10">
             <div className="w-full h-full sm:w-[90%] md:w-[85%] flex items-end justify-end lg:w-[80%] py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-6 md:px-8 lg:px-10">
               <h1
                 className={`${montserrat.className} text-white font-[400] 
@@ -160,7 +205,6 @@ const page = () => {
           </div>
         </div>
       </div>
-
       {/* About section - Only animate on desktop */}
       <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
         <div className="max-w-6xl mx-auto">

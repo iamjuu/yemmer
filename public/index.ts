@@ -1,5 +1,7 @@
 import Logo from "./image/logo.png"
+// banner image 
 import Banner from "./image/banner.png"
+import Banner2 from "./image/banner2.svg"
 import SectionOne from "./image/section1.png"
 import SectionCard from "./image/sectioncard.png"
 import Sponser1 from "./sponesers/spaoners1.svg"
@@ -58,5 +60,6 @@ export{
     BusiessIMage1,
     BusinessImage2,
     BusinessImage3,
-    BusinessImage4
+    BusinessImage4,
+    Banner2
 }

@@ -16,6 +16,7 @@ import {
   YemmarBg,
   Mainbg,
   ArabicPic,
+  Banner2,
 } from "@/public";
 import localFont from "next/font/local";
 import Button from "@/components/btn";
@@ -36,6 +37,27 @@ const montserrat = localFont({
 
 const page = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Array of background images for the carousel
+  const carouselImages = [
+    YemmarBg,
+    Banner2,
+  ];
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
+  // Manual navigation
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   useEffect(() => {
     // Set initial screen size
@@ -127,13 +149,41 @@ const page = () => {
           data-aos-mirror="true"
           data-aos-disable="false"
           className="relative w-full flex  h-full justify-end max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[600px] bg-cover bg-center rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
-          style={{
-            backgroundImage: `url(${YemmarBg.src})`,
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
         >
+          {/* Carousel Background */}
+          <div className="absolute inset-0 overflow-hidden">
+            {carouselImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                  backgroundImage: `url(${image.src})`,
+                  backgroundPosition: "bottom",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Carousel Navigation Dots */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+            {carouselImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-white scale-125' 
+                    : 'bg-white/40 hover:bg-white/75'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
           {/* Black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl"></div>
 
