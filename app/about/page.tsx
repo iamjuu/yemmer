@@ -296,14 +296,15 @@ const page = () => {
 
         {/* Sponsor section - Simplified animation on mobile */}
         <div className="w-full px-2 md:px-3  pt-[25px] md:pt-[150px]  mb-[50px] md:mb-[150px]">
-          <div className="max-w-7xl mx-auto">
-            <div className=" py-[50px] md:py-[100px]">
+          <div className="w-full mx-auto">
+            <div className="max-w-7xl mx-auto flex  py-[50px] md:py-[100px]">
               <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
                 Investments & Ventures
               </button>
             </div>
 
             {/* Infinite Scroll Container */}
+            <div className="w-full">
             <div className="relative overflow-hidden">
               <div
                 id="infinite-scroll"
@@ -341,6 +342,7 @@ const page = () => {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </div>
         </div>
