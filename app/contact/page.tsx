@@ -1,13 +1,344 @@
-import React from 'react'
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
+"use client";
+
+import React from "react";
+import YemmarFooter from "@/components/footer";
+import Navbar from "@/components/navbar";
+import Button from "@/components/btn";
+import GoogleMapComponent from "@/components/GoogleMap";
+import {
+  Cart,
+  Loory,
+  Mainbg,
+  Search,
+  Settings,
+  BusiessIMage1,
+  BusinessImage2,
+  BusinessImage3,
+  BusinessImage4,
+} from "@/public";
+import Image from "next/image";
+
+
+const locations = [
+  {
+    id: 1,
+    city: "Riyadh",
+    cityArabic: "الرياض",
+    location: "Applain(Sheesa) Al-Muhammadiya",
+    coordinates: { lat: 24.7136, lng: 46.6753 },
+    link: "https://www.google.com/maps/search/?api=1&query=24.7136,46.6753"
+  },
+  {
+    id: 2,
+    city: "Jeddah",
+    cityArabic: "جدة",
+    location: "Applain(Sheesa) Al-Muhammadiya",
+    coordinates: { lat: 21.4858, lng: 39.1925 },
+    link: "https://www.google.com/maps/search/?api=1&query=21.4858,39.1925"
+  },
+  {
+    id: 3,
+    city: "Calicut",
+    cityArabic: "كوزيكود",
+    location: "Applain(Sheesa) Al-Muhammadiya",
+    coordinates: { lat: 11.2588, lng: 75.7804 },
+    link: "https://www.google.com/maps/search/?api=1&query=11.2588,75.7804"
+  },
+  {
+    id: 4,
+    city: "Calicut",
+    cityArabic: "كوزيكود",
+    location: "Applain(Sheesa) Al-Muhammadiya",
+    coordinates: { lat: 11.2588, lng: 75.7804 },
+    link: "https://www.google.com/maps/search/?api=1&query=11.2588,75.7804"
+  },
+  {
+    id: 5,
+    city: "Dammam",
+    cityArabic: "الدمام",
+    location: "Applain(Sheesa) Al-Khobar",
+    coordinates: { lat: 26.4207, lng: 50.0888 },
+    link: "https://www.google.com/maps/search/?api=1&query=26.4207,50.0888"
+  },
+  {
+    id: 6,
+    city: "Mecca",
+    cityArabic: "مكة المكرمة",
+    location: "Applain(Sheesa) Al-Haram",
+    coordinates: { lat: 21.4225, lng: 39.8262 },
+    link: "https://www.google.com/maps/search/?api=1&query=21.4225,39.8262"
+  },
+  {
+    id: 7,
+    city: "Medina",
+    cityArabic: "المدينة المنورة",
+    location: "Applain(Sheesa) Al-Masjid",
+    coordinates: { lat: 24.5247, lng: 39.5692 },
+    link: "https://www.google.com/maps/search/?api=1&query=24.5247,39.5692"
+  },
+  {
+    id: 8,
+    city: "Abha",
+    cityArabic: "أبها",
+    location: "Applain(Sheesa) Al-Sahab",
+    coordinates: { lat: 18.2164, lng: 42.5053 },
+    link: "https://www.google.com/maps/search/?api=1&query=18.2164,42.5053"
+  },
+  {
+    id: 9,
+    city: "Tabuk",
+    cityArabic: "تبوك",
+    location: "Applain(Sheesa) Al-Faisaliyah",
+    coordinates: { lat: 28.3835, lng: 36.5664 },
+    link: "https://www.google.com/maps/search/?api=1&query=28.3835,36.5664"
+  },
+  {
+    id: 10,
+    city: "Jizan",
+    cityArabic: "جيزان",
+    location: "Applain(Sheesa) Al-Corniche",
+    coordinates: { lat: 16.8894, lng: 42.5706 },
+    link: "https://www.google.com/maps/search/?api=1&query=16.8894,42.5706"
+  },
+  {
+    id: 11,
+    city: "Najran",
+    cityArabic: "نجران",
+    location: "Applain(Sheesa) Al-Khalij",
+    coordinates: { lat: 17.5656, lng: 44.2289 },
+    link: "https://www.google.com/maps/search/?api=1&query=17.5656,44.2289"
+  },
+  {
+    id: 12,
+    city: "Al-Ahsa",
+    cityArabic: "الأحساء",
+    location: "Applain(Sheesa) Al-Hofuf",
+    coordinates: { lat: 25.3832, lng: 49.5877 },
+    link: "https://www.google.com/maps/search/?api=1&query=25.3832,49.5877"
+  },
+  {
+    id: 13,
+    city: "Al-Kharj",
+    cityArabic: "الخرج",
+    location: "Applain(Sheesa) Al-Dawadmi",
+    coordinates: { lat: 24.1554, lng: 47.3346 },
+    link: "https://www.google.com/maps/search/?api=1&query=24.1554,47.3346"
+  },
+  {
+    id: 14,
+    city: "Al-Qassim",
+    cityArabic: "القصيم",
+    location: "Applain(Sheesa) Buraydah",
+    coordinates: { lat: 26.3360, lng: 43.9632 },
+    link: "https://www.google.com/maps/search/?api=1&query=26.3360,43.9632"
+  },
+  {
+    id: 15,
+    city: "Al-Baha",
+    cityArabic: "الباحة",
+    location: "Applain(Sheesa) Al-Malqa",
+    coordinates: { lat: 20.0129, lng: 41.4677 },
+    link: "https://www.google.com/maps/search/?api=1&query=20.0129,41.4677"
+  },
+  {
+    id: 16,
+    city: "Al-Jouf",
+    cityArabic: "الجوف",
+    location: "Applain(Sheesa) Sakaka",
+    coordinates: { lat: 29.9697, lng: 40.1064 },
+    link: "https://www.google.com/maps/search/?api=1&query=29.9697,40.1064"
+  },
+
+];
+
 const page = () => {
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${Mainbg.src})`,
+        backgroundPosition: "bottom",
+        backgroundSize: "full",
+        backgroundRepeat: "repeat",
+      }}
+      className="min-h-screen"
+    >
       <Navbar />
-      <Footer />
-    </div>
-  )
-}
+      <div className="w-full pt-[40px] mb-[76px]  sm:pt-[60px] px-4 sm:px-6 md:px-8 lg:pt-[150px]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-8">
+            {/* Left Section - Contact Information */}
+            <div className="w-full lg:w-[40%] order-2 lg:order-1">
+              {/* Contact Us Button */}
+              <div className="mb-[40px] sm:mb-[50px] lg:mb-[70px]">
+                <Button className="px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base">
+                  Contact Us
+                </Button>
+              </div>
 
-export default page
+              {/* Phone Numbers */}
+              <div className="flex flex-col gap-[30px] sm:gap-[40px] lg:gap-[46px]">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-4 sm:gap-6 lg:gap-0">
+                  <div>
+                    <p className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                      {" "}
+                      <span className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                        SA:
+                      </span>{" "}
+                      +966 54 138 3220
+                    </p>
+                    <p className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                      +966 50 6984310
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                      {" "}
+                      <span className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                        IN:
+                      </span>{" "}
+                      +91 87108 08080
+                    </p>
+                    <p className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                      +91 81578 68080
+                    </p>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="mb-[30px] sm:mb-[40px] lg:mb-[46px] flex flex-col gap-[2px]">
+                  <span className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                    Email:
+                  </span>
+                  <p className="text-[18px] sm:text-[22px] lg:text-[26px] font-[300]">
+                    {" "}
+                    headoffice@yemmar.com
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Section - Contact Form */}
+            <div className="w-full lg:w-[60%] order-1 lg:order-2">
+              <form className="">
+                {/* First Row */}
+                <div className="flex flex-col gap-[40px] sm:gap-[56px] lg:gap-[72px]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border-b-2 border-blue-300 focus:border-blue-500 outline-none bg-transparent text-gray-600 placeholder-gray-400 text-sm sm:text-base"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="tel"
+                        placeholder="Phone Number"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border-b-2 border-blue-300 focus:border-blue-500 outline-none bg-transparent text-gray-600 placeholder-gray-400 text-sm sm:text-base"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Second Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border-b-2 border-blue-300 focus:border-blue-500 outline-none bg-transparent text-gray-600 placeholder-gray-400 text-sm sm:text-base"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Feedback Type"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border-b-2 border-blue-300 focus:border-blue-500 outline-none bg-transparent text-gray-600 placeholder-gray-400 text-sm sm:text-base"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Third Row - Message */}
+                  <div className="">
+                    <textarea
+                      placeholder="Message"
+                      rows={4}
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-b-2 border-blue-300 focus:border-blue-500 outline-none bg-transparent text-gray-600 placeholder-gray-400 resize-none text-sm sm:text-base"
+                    ></textarea>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <Button
+                      type="submit"
+                      className="px-[18px] sm:px-[22px] py-[5px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base"
+                    >
+                      Submit
+                    </Button>
+                    <Button
+                      type="reset"
+                      className="px-[18px] sm:px-[22px] py-[5px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base"
+                    >
+                      Reset
+                    </Button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full mb-[76px]  sm:pt-[60px] px-4 sm:px-6 md:px-8 ">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-[40px] sm:mb-[50px] lg:mb-[70px]">
+            <Button className="px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base">
+              Location
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full mb-[76px] sm:pt-[60px] px-4 sm:px-6 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {locations.map((location) => (
+            <div 
+              key={location.id} 
+              className="rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300"
+              onClick={() => window.open(location.link, '_blank')}
+            >
+              <div className="relative h-48">
+                <iframe
+                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${location.coordinates.lng-0.01},${location.coordinates.lat-0.01},${location.coordinates.lng+0.01},${location.coordinates.lat+0.01}&layer=mapnik&marker=${location.coordinates.lat},${location.coordinates.lng}`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
+                {/* <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+                  <div className="bg-white bg-opacity-90 rounded-full p-2 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                </div> */}
+              </div>
+              <div className="p-4">
+                <p className="text-sm text-gray-700 text-start">
+                  {location.location}
+                </p>
+
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+      <YemmarFooter />
+    </div>
+  );
+};
+
+export default page;

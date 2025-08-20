@@ -41,44 +41,47 @@ const page = () => {
         backgroundSize: "full",
         backgroundRepeat: "repeat",
       }}
-      className="min-h-screen px-2 sm:px-4"
+      className="min-h-screen"
     >
       <Navbar />
 
-      <div className="w-full">
-        {/* Sections loop */}
-        {sectionsData.map((section) => (
-          <div 
-            key={section.id} 
-            className="max-w-7xl px-4 sm:px-6 md:px-8 lg:px-[54px] py-6 sm:py-8 md:py-[38px] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] mx-auto mb-4 sm:mb-6"
-            style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
-          >
-            <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-[88px]">
-              <div className="w-full lg:w-[60%] flex flex-col order-2 lg:order-1">
-                <div className="mb-6 sm:mb-8 lg:mb-[60px]">
-                  <Button
-                    children={section.buttonText}
-                    className={`px-4 sm:px-6 ${montserrat.className} lg:px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200`}
-                  />
+      {/* Main content section */}
+      <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
+        <div className="max-w-6xl mx-auto">
+          {/* Sections loop */}
+          {sectionsData.map((section) => (
+            <div 
+              key={section.id} 
+              className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] mb-6 sm:mb-8 md:mb-12"
+              style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
+            >
+              <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+                <div className="w-full lg:w-[60%] flex flex-col order-2 lg:order-1">
+                  <div className="mb-6 sm:mb-8 lg:mb-[60px]">
+                    <Button
+                      children={section.buttonText}
+                      className={`px-4 sm:px-6 ${montserrat.className} lg:px-10 py-1 border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200`}
+                    />
+                  </div>
+
+                  <p className="text-base sm:text-lg md:text-xl lg:text-[22px] font-[300] leading-relaxed">
+                    "{section.content}"
+                  </p>
                 </div>
 
-                <p className="text-base sm:text-lg md:text-xl lg:text-[22px] font-[300] leading-relaxed">
-                  "{section.content}"
-                </p>
-              </div>
-
-              <div className="w-full lg:w-[40%] order-1 lg:order-2">
-                <div className="w-full rounded-[10px] sm:rounded-[15px] border p-2 sm:p-4 h-[200px] sm:h-[250px] md:h-[300px] lg:h-full">
-                  <Image
-                    src={section.image}
-                    className="w-full h-full rounded-[8px] sm:rounded-[15px] object-cover"
-                    alt={section.imageAlt}
-                  />
+                <div className="w-full lg:w-[40%] order-1 lg:order-2">
+                  <div className="w-full rounded-[10px] sm:rounded-[15px] border p-2 sm:p-4 h-[200px] sm:h-[250px] md:h-[300px] lg:h-full">
+                    <Image
+                      src={section.image}
+                      className="w-full h-full rounded-[8px] sm:rounded-[15px] object-cover"
+                      alt={section.imageAlt}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Footer section */}
