@@ -11,6 +11,7 @@ import {
   BusinessImage2,
   BusinessImage3,
   BusinessImage4,
+  BusinessImage5,
 } from "@/public";
 import Image from "next/image";
 
@@ -44,25 +45,26 @@ const businessSectors = [
 const Images = [
   {
     id: 1,
-    image: BusiessIMage1,
-    title: "Distribution",
+    image: BusinessImage5,
+   
   },
   {
     id: 2,
     image: BusinessImage2,
-    title: "Hospitality",
+
   },
   {
     id: 3,
     image: BusinessImage3,
-    title: "Retail",
+ 
   },
   {
     id: 4,
     image: BusinessImage4,
-    title: "Real Estate & Construction",
+   
   },
-];
+].reverse();
+
 
 const page = () => {
   return (
@@ -79,10 +81,10 @@ const page = () => {
 
       {/* images  */}
 
-      <div className="w-full px-2 md:px-3 pt-[50px] pb-[50px]">
+      <div className="w-full px-2 md:px-3  ">
         <div className="max-w-7xl mx-auto">
-          <div className="pb-[92px]">
-            <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+          <div className="pb-[44px]">
+            <button className="text-[26px] font-[300] px-[44px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
             Business Sector
             </button>
           </div>
@@ -91,13 +93,13 @@ const page = () => {
             {Images.map((item) => (
               <div
                 key={item.id}
-                className="relative w-[300px] h-[400px] mx-auto overflow-hidden rounded-lg"
+                className="relative w-[300px] h-[400px] mx-auto overflow-hidden   delay-300 hover:scale-110 transition-all duration-300 rounded-lg"
               >
                 <Image
                   src={item.image}
-                  alt={item.title}
+              
                   fill
-                  className="object-cover"
+                  className="object-cover  "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
                   {/* <h3 className="text-xl font-semibold text-center">{item.title}</h3> */}
@@ -110,7 +112,7 @@ const page = () => {
 
       <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
         <div className="max-w-7xl mx-auto">
-          <div className="py-[100px]">
+          <div className="pt-[150px] pb-[80px] ">
             <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
               Yemmar Industries
             </button>
@@ -119,7 +121,7 @@ const page = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {businessSectors.map((sector) => (
               <div key={sector.id} className="w-full">
-                <div className="flex justify-center flex-col items-center">
+                <div className="flex justify-center flex-col gap-[10px] items-center">
                   <div className="w-[65px] h-[65px]">
                     <Image
                       src={sector.icon}
@@ -129,13 +131,13 @@ const page = () => {
                     />
                   </div>
                   <div>
-                    <h1 className="font-[300] text-center text-[40px]">
+                    <h1 className="font-[300] text-center text-[32px]">
                       {sector.title}
                     </h1>
                     {sector.items.map((item, index) => (
                       <p
                         key={index}
-                        className="text-[22px] text-center font-[300]"
+                        className="text-[22px] leading-[22px] text-center font-[300]"
                       >
                         {item}
                       </p>
@@ -147,8 +149,10 @@ const page = () => {
           </div>
         </div>
       </div>
+<div className="mb-[10px] md:mb-[76px]">
 
       <YemmarFooter />
+</div>
     </div>
   );
 };

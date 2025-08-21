@@ -17,7 +17,7 @@ import Linkedin from "./icons/linkedin logo.png"
 import Facebook from "./icons/facebook logo.png"
 import Twitter from "./icons/List → Item → Link.png"
 import YemmarBg from "./image/yemmarbg.svg"
-import ArabicPic from "./image/arabic.svg"
+import ArabicPic from "./image/yemmerArabicyr.svg"
 import Mainbg from "./image/mainbg.svg"
 
 // business page icons
@@ -31,6 +31,7 @@ import BusiessIMage1 from "./image/business/Frame 1000003434.svg"
 import BusinessImage2 from "./image/business/Frame 1000003435.svg"
 import BusinessImage3 from "./image/business/Frame 1000003436.svg"
 import BusinessImage4 from "./image/business/Frame 1000003437.svg"
+import BusinessImage5 from "./image/business/realastateimage.svg"
 
 // second-page 
 import Vession from "./image/vesion.svg"
@@ -65,5 +66,6 @@ export{
     BusinessImage4,
     Banner2,
     Vession,
-    Mission
+    Mission,
+    BusinessImage5
 }

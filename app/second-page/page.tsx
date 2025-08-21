@@ -46,8 +46,8 @@ const page = () => {
       <Navbar />
 
       {/* Main content section */}
-      <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
-        <div className="max-w-6xl mx-auto">
+      <div className="w-full px-2 md:px-3 ">
+        <div className="max-w-7xl mx-auto">
           {/* Sections loop */}
           {sectionsData.map((section) => (
             <div 
@@ -70,7 +70,7 @@ const page = () => {
                 </div>
 
                 <div className="w-full lg:w-[40%] order-1 lg:order-2">
-                  <div className="w-full rounded-[10px] sm:rounded-[15px] border p-2 sm:p-4 h-[200px] sm:h-[250px] md:h-[300px] lg:h-full">
+                  <div className="w-full rounded-[10px] sm:rounded-[15px] border-gray-300 border-[0.5px] p-2 sm:p-4 h-[200px] sm:h-[250px] md:h-[300px] lg:h-full">
                     <Image
                       src={section.image}
                       className="w-full h-full rounded-[8px] sm:rounded-[15px] object-cover"

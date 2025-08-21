@@ -22,6 +22,7 @@ import Navbar from "../../components/navbar";
 import localFont from "next/font/local";
 import Button from "@/components/btn";
 import { MoveRight } from "lucide-react";
+import Logomoving from "@/components/logomoving";
 import "aos/dist/aos.css";
 import AOS from "aos";
 
@@ -295,55 +296,22 @@ const page = () => {
         </div>
 
         {/* Sponsor section - Simplified animation on mobile */}
-        <div className="w-full px-2 md:px-3  pt-[25px] md:pt-[150px]  mb-[50px] md:mb-[150px]">
+        <div className="w-full px-2 md:px-3  py-[80px]   ">
           <div className="w-full mx-auto">
-            <div className="max-w-7xl mx-auto flex  py-[50px] md:py-[100px]">
+            <div className="max-w-6xl flex-col pb-[50px]  mx-auto flex  ">
+              <div>
+
               <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
                 Investments & Ventures
               </button>
-            </div>
-
-            {/* Infinite Scroll Container */}
-            <div className="w-full">
-            <div className="relative overflow-hidden">
-              <div
-                id="infinite-scroll"
-                className="flex gap-8 items-center py-8"
-                style={{
-                  width: "max-content",
-                  animation: "scroll 30s linear infinite",
-                }}
-              >
-                {/* First set of sponsors */}
-                {sponser.map((sponser, index) => (
-                  <div
-                    key={`first-${sponser.id}`}
-                    className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
-                  >
-                    <Image
-                      src={sponser.image}
-                      alt="sponser"
-                      className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
-                    />
-                  </div>
-                ))}
-
-                {/* Duplicate set for seamless loop */}
-                {sponser.map((sponser, index) => (
-                  <div
-                    key={`second-${sponser.id}`}
-                    className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 flex justify-center items-center"
-                  >
-                    <Image
-                      src={sponser.image}
-                      alt="sponser"
-                      className="w-full h-full object-contain transition-all duration-300 hover:scale-110"
-                    />
-                  </div>
-                ))}
               </div>
             </div>
+            <div className="w-full">
+
+              <Logomoving />
             </div>
+
+        
           </div>
         </div>
 
