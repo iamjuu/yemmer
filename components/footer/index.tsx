@@ -18,11 +18,11 @@ const montserrat = localFont({
 
 export default function YemmarFooter() {
   return (
-    <footer className={`text-white justify-center flex w-full  ${montserrat.className}`}>
+    <footer className={`text-white    justify-center flex w-full  ${montserrat.className}`}>
       <div className="max-w-7xl w-full flex flex-col p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] justify-center bg-[#2F3134]">
         
         {/* Main Content Section */}
-        <div className="flex w-full justify-between max-w-6xl flex-col md:flex-row mb-8 sm:mb-10 md:mb-12 gap-8 md:gap-0">
+        <div className="flex w-full  justify-between flex-col md:flex-row mb-8 sm:mb-10 md:mb-12 gap-8 md:gap-0">
           
           {/* Logo Section */}
           <div className="w-full md:w-[60%] flex justify-start">
@@ -56,9 +56,9 @@ export default function YemmarFooter() {
 
               {/* Contact Information */}
               <div className="flex flex-col   space-y-3 sm:space-y-4">
-               <div className='bg-green-300 flex flex-col'>
+               <div className=' flex flex-col'>
                 <div className='flex flex-col gap-[10px]'>
-                <div className="text-[18px] bg-red-300 font-[300]">
+                <div className="text-[18px] font-[300]">
                   <div className="mb-1 sm:mb-2">
                     <span className="text-xs sm:text-sm">SA: </span>
                     <span>+966 54 138 3220</span>
@@ -85,7 +85,24 @@ export default function YemmarFooter() {
                 </div>
 
                 </div>
-                <div className="w-full sm:w-[20%] flex justify-center sm:justify-between px-2  gap-4 sm:gap-5">
+                
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom Section */}
+        <div className="flex flex-col sm:flex-row w-full items-center gap-4 sm:gap-0">
+          
+          {/* Copyright */}
+          <div className="w-full sm:w-[80%] text-center sm:text-left">
+            <p className="text-white text-xs sm:text-sm">
+              Yemmer Group © 2024 All rights reserved. Privacy Policy
+            </p>
+          </div>
+          <div className="w-full sm:w-[20%] flex justify-center sm:justify-between px-2  gap-4 sm:gap-5">
             <a 
               href="#" 
               className="text-gray-400 hover:text-white transition-colors duration-200 flex-shrink-0"
@@ -115,22 +132,6 @@ export default function YemmarFooter() {
               <FontAwesomeIcon icon={faXTwitter} className="w-5 h-5 sm:w-6 sm:h-6" />
               {/* <FontAwesomeIcon icon="fa-brands fa-x-twitter"    className="w-5 h-5 sm:w-6 sm:h-6"  /> */}
             </a>
-          </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Bottom Section */}
-        <div className="flex flex-col sm:flex-row w-full items-center gap-4 sm:gap-0">
-          
-          {/* Copyright */}
-          <div className="w-full sm:w-[80%] text-center sm:text-left">
-            <p className="text-white text-xs sm:text-sm">
-              Yemmer Group © 2024 All rights reserved. Privacy Policy
-            </p>
           </div>
 
           {/* Social Media Icons */}
