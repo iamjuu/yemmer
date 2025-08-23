@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/", label: "Home",  },
   { href: "/corporate", label: "Corporate",  },
   { href: "/business-sector", label: "Business Sector", },
-  { href: "/vision-mission", label: "Vision & Mission",  },
+  { href: "/Vision-Mission", label: "Vision & Mission",  },
 ];
 
 const Header = () => {
