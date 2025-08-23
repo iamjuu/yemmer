@@ -97,7 +97,7 @@ const page = () => {
               >
                 <Image
                   src={item.image}
-              
+                  alt={`Business sector ${item.id}`}
                   fill
                   className="object-cover  "
                 />
