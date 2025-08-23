@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import YemmarFooter from "@/components/footer";
 import Navbar from "@/components/navbar";
