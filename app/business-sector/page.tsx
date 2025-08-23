@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import YemmarFooter from "@/components/footer";
 import Navbar from "@/components/navbar";
 import {
@@ -14,6 +16,13 @@ import {
   BusinessImage5,
 } from "@/public";
 import Image from "next/image";
+
+// Shimmer component
+const Shimmer = ({ className }: { className: string }) => (
+  <div className={`animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] ${className}`}>
+    <div className="animate-shimmer bg-gradient-to-r from-transparent via-white/50 to-transparent h-full w-full"></div>
+  </div>
+);
 
 const businessSectors = [
   {
@@ -67,6 +76,17 @@ const Images = [
 
 
 const page = () => {
+  const [imagesLoaded, setImagesLoaded] = useState<{ [key: number]: boolean }>({});
+  const [sectorImagesLoaded, setSectorImagesLoaded] = useState<{ [key: number]: boolean }>({});
+
+  const handleImageLoad = (id: number, type: 'business' | 'sector') => {
+    if (type === 'business') {
+      setImagesLoaded(prev => ({ ...prev, [id]: true }));
+    } else {
+      setSectorImagesLoaded(prev => ({ ...prev, [id]: true }));
+    }
+  };
+
   return (
     <div
       style={{
@@ -95,11 +115,17 @@ const page = () => {
                 key={item.id}
                 className="relative w-[300px] h-[400px] mx-auto overflow-hidden   delay-300 hover:scale-110 transition-all duration-300 rounded-lg"
               >
+                {/* Shimmer loading state */}
+                {!imagesLoaded[item.id] && (
+                  <Shimmer className="absolute inset-0 w-full h-full" />
+                )}
+                
                 <Image
                   src={item.image}
-              
+                  alt={`Business sector ${item.id}`}
                   fill
-                  className="object-cover  "
+                  className={`object-cover transition-opacity duration-300 ${imagesLoaded[item.id] ? 'opacity-100' : 'opacity-0'}`}
+                  onLoad={() => handleImageLoad(item.id, 'business')}
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
                   {/* <h3 className="text-xl font-semibold text-center">{item.title}</h3> */}
@@ -121,16 +147,23 @@ const page = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {businessSectors.map((sector) => (
               <div key={sector.id} className="w-full">
-                <div className="flex justify-center flex-col gap-[10px] items-center">
-                  <div className="w-[65px] h-[65px]">
+                <div className="flex justify-center flex-col gap-[10px] items-center relative">
+                  <div className="w-[65px] h-[65px] relative">
+                    {/* Shimmer loading state for icon */}
+                    {!sectorImagesLoaded[sector.id] && (
+                      <Shimmer className="absolute inset-0 w-[65px] h-[65px] rounded-full" />
+                    )}
+                    
                     <Image
                       src={sector.icon}
                       alt={sector.title}
                       width={100}
                       height={100}
+                      className={`transition-opacity duration-300 ${sectorImagesLoaded[sector.id] ? 'opacity-100' : 'opacity-0'}`}
+                      onLoad={() => handleImageLoad(sector.id, 'sector')}
                     />
                   </div>
-                  <div>
+                  <div className="relative">
                     <h1 className="font-[300] text-center text-[32px]">
                       {sector.title}
                     </h1>

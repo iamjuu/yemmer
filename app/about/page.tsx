@@ -208,7 +208,7 @@ const page = () => {
         </div>
         {/* About section - Only animate on desktop */}
         <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* About Button */}
             <div
               data-aos="fade-up"
@@ -298,7 +298,7 @@ const page = () => {
         {/* Sponsor section - Simplified animation on mobile */}
         <div className="w-full px-2 md:px-3  py-[80px]   ">
           <div className="w-full mx-auto">
-            <div className="max-w-6xl flex-col pb-[50px]  mx-auto flex  ">
+            <div className="max-w-7xl flex-col pb-[50px]  mx-auto flex  ">
               <div>
 
               <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">

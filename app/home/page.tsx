@@ -214,7 +214,7 @@ const page = () => {
 
       {/* About section - Only animate on desktop */}
       <div className="w-full pt-[60px] px-2 md:px-3 md:pt-[150px]">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* About Button */}
           <div
             data-aos="fade-up"
@@ -326,7 +326,7 @@ const page = () => {
 
       {/* Business sector section - Simplified on mobile */}
       <div className="w-full px-2 md:px-3 ">
-        <div className="max-w-6xl flex items-center justify-center md:flex-row flex-col mx-auto">
+        <div className="max-w-7xl flex items-center justify-center md:flex-row flex-col mx-auto">
           <div className="flex md:flex-row flex-col w-full justify-between  gap-[23px]">
             {/* Left side - Image with overlay */}
             <div className="flex justify-center  w-full md:w-[40%]">
@@ -417,7 +417,7 @@ const page = () => {
 
       {/* arabic section  */}
       <div className="w-full px-2 py-[50px] md:pt-[150px]">
-        <div className="max-w-6xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
+        <div className="max-w-7xl  md:flex-row flex-col gap-10 flex w-full mx-auto">
           <div className="w-full  md:items-start  items-center justify-center md:justify-start flex">
             <Image
               src={ArabicPic}
@@ -441,7 +441,7 @@ const page = () => {
 
       {/* Our business section - Simplified on mobile */}
       <div className="w-full px-2  py-[60px] md:py-[150px]">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Testimonials Grid */}
           <div className="flex flex-col md:flex-row md:justify-between md:gap-10 gap-0">
             {/* CMD Message */}
