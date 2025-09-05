@@ -380,7 +380,7 @@ const page = () => {
         <div className="max-w-7xl mx-auto">
           <div 
             ref={tabsContainerRef}
-            className="flex overflow-x-auto gap-2 sm:gap-4 justify-between scrollbar-hide"
+            className="flex overflow-x-auto px-2 py-2 gap-2 sm:gap-4 justify-between scrollbar-hide"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {tabsData.map((tab, index) => (
