@@ -342,9 +342,9 @@ const page = () => {
             </div>
 
             {/* Right side - Statistics cards */}
-            <div className="flex flex-col space-y-6   w-full md:w-[60%]">
+            <div className="flex flex-col gap-5 w-full md:w-[60%]">
               {/* Total Retail Space Card */}
-              <div className="flex flex-col   w-full  md:max-w-[693px] max-w-full justify-center items-start rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm border border-gray-100 flex-1">
+              <div className="flex flex-col   w-full   max-w-full justify-center items-start rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm border border-gray-100 flex-1">
                 <div
                   data-aos="flip-down"
                   data-aos-mirror="true"
@@ -367,7 +367,6 @@ const page = () => {
                   Total Retail Space
                 </div>
               </div>
-
               {/* Bottom row - Employees and Stores */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Employees Card */}
