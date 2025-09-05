@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import YemmarFooter from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Button from "@/components/btn";
@@ -150,33 +150,69 @@ const internationalLocations = [
 const tabsData = [
   {
     id: 1,
-    name: "Central Region",
+    name: "Applain Branches",
     locations: centralRegionLocations
   },
   {
     id: 2,
-    name: "Eastern Region", 
+    name: "Yemmart Branches", 
     locations: easternRegionLocations
   },
   {
     id: 3,
-    name: "Western Region",
+    name: "Yemmar Branches",
     locations: westernRegionLocations
   },
   {
     id: 4,
-    name: "Southern Region",
+    name: "Mamron Branches",
     locations: southernRegionLocations
   },
   {
     id: 5,
-    name: "International",
+    name: "Mamco Branches",
+    locations: internationalLocations
+  },
+  {
+    id: 6,
+    name: "Spicy Restaurant",
+    locations: internationalLocations
+  },
+  {
+    id: 7,
+    name: "Yemmar Branches",
     locations: internationalLocations
   }
 ];
 
 const page = () => {
   const [activeTab, setActiveTab] = useState(1);
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Scroll to active tab when it changes
+  useEffect(() => {
+    const activeTabIndex = tabsData.findIndex(tab => tab.id === activeTab);
+    const activeTabElement = tabRefs.current[activeTabIndex];
+    
+    if (activeTabElement && tabsContainerRef.current) {
+      const container = tabsContainerRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = activeTabElement.getBoundingClientRect();
+      
+      // Calculate if tab is outside viewport
+      const isTabVisible = tabRect.left >= containerRect.left && tabRect.right <= containerRect.right;
+      
+      if (!isTabVisible) {
+        // Scroll to center the active tab
+        const scrollLeft = activeTabElement.offsetLeft - (container.offsetWidth / 2) + (activeTabElement.offsetWidth / 2);
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [activeTab]);
 
   return (
     <div
@@ -327,8 +363,8 @@ const page = () => {
       </div>
       
       {/* main location  */}
-      <div className="w-full mb-[76px] sm:pt-[60px]">
-        <div className="relative   w-full mb-[76px] sm:pt-[60px]  max-w-7xl mx-auto h-[392px]">
+      <div className="w-full mb-[76px] md:mb-0 sm:pt-[60px]">
+        <div className="relative w-full mb-[76px] sm:pt-[60px] max-w-7xl mx-auto h-[392px] px-4 sm:px-6 md:px-0">
           <iframe
             src={`https://www.openstreetmap.org/export/embed.html?bbox=${locations[0].coordinates.lng-0.01},${locations[0].coordinates.lat-0.01},${locations[0].coordinates.lng+0.01},${locations[0].coordinates.lat+0.01}&layer=mapnik&marker=${locations[0].coordinates.lat},${locations[0].coordinates.lng}`}
             width="100%"
@@ -339,29 +375,22 @@ const page = () => {
         </div>
       </div>
 
-      {/* location btn  */}
-      {/* <div className="w-full mb-[76px]  sm:pt-[60px] px-4 sm:px-6 md:px-8 ">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-[40px] sm:mb-[50px] lg:mb-[70px]">
-            <Button 
-            className="px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base">
-            Alpine Branches
-            </Button>
-          </div>
-        </div>
-      </div> */}
-
       {/* Tab Navigation */}
       <div className="w-full mb-[40px] px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2 sm:gap-4 justify-between">
-            {tabsData.map((tab) => (
+          <div 
+            ref={tabsContainerRef}
+            className="flex overflow-x-auto gap-2 sm:gap-4 justify-between scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {tabsData.map((tab, index) => (
               <button
                 key={tab.id}
+                ref={(el) => { tabRefs.current[index] = el; }}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base ${
+                className={`px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-all duration-300 text-sm sm:text-base whitespace-nowrap flex-shrink-0 ${
                   activeTab === tab.id
-                    ? 'bg-[#2f3134] text-white shadow-lg'
+                    ? 'bg-[#2f3134] text-white shadow-lg transform scale-105'
                     : 'bg-white text-gray-600 border border-gray-300 hover:border-gray-400 hover:shadow-md'
                 }`}
               >
