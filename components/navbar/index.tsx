@@ -11,7 +11,6 @@ import Image from 'next/image';
 
 const navLinks = [
   { href: "/", label: "Home",  },
-  { href: "/corporate", label: "Corporate",  },
   { href: "/business-sector", label: "Business Sector", },
   { href: "/Vision-Mission", label: "Vision & Mission",  },
 ];
@@ -27,7 +26,7 @@ const Header = () => {
   }, [])
    return (
     <header className="w-full   px-3 md:px-2">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl  mx-auto ">
         <div className="flex justify-between  pitems-center pb-[43px]  pt-[37px]">
           {/* Logo */}
           <div className="flex items-center">
@@ -47,7 +46,7 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-300"
+                className="hover:text-[#FFCB05]   font-medium  duration-700 delay-200"
                 data-aos="flip-down"
                 data-aos-delay={index * 400}
               >
@@ -113,7 +112,7 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  className="flex items-center  hover:text-[#FFCB05] space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 "
                   data-aos="flip-down"
                   data-aos-delay={index * 100}
                 >
@@ -123,7 +122,7 @@ const Header = () => {
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                className="flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#FFCB05] hover:bg-gray-50 transition-all duration-500 ease-in-out delay-100 hover:scale-105 hover:shadow-sm"
                 data-aos="flip-down"
               >
                 <FontAwesomeIcon icon={faPhone} className="w-5 h-5" />

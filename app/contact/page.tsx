@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import YemmarFooter from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Button from "@/components/btn";
@@ -116,153 +116,68 @@ const locations = [
     coordinates: { lat: 25.3832, lng: 49.5877 },
     link: "https://www.google.com/maps/search/?api=1&query=25.3832,49.5877"
   },
+];
+
+// Separate arrays for each tab
+const centralRegionLocations = [
+  locations[0], // Riyadh
+  locations[1]  // Jeddah
+];
+
+const easternRegionLocations = [
+  locations[4],  // Dammam
+  locations[11]  // Al-Ahsa
+];
+
+const westernRegionLocations = [
+  locations[5], // Mecca
+  locations[6]  // Medina
+];
+
+const southernRegionLocations = [
+  locations[7],  // Abha
+  locations[9],  // Jizan
+  locations[10]  // Najran
+];
+
+const internationalLocations = [
+  locations[2], // Calicut (first location)
+  locations[3], // Calicut (second location)
+  locations[8]  // Tabuk
+];
+
+// Tab data structure with locations organized by tabs
+const tabsData = [
   {
-    id: 13,
-    city: "Al-Kharj",
-    cityArabic: "الخرج",
-    location: "Applain(Sheesa) Al-Dawadmi",
-    coordinates: { lat: 24.1554, lng: 47.3346 },
-    link: "https://www.google.com/maps/search/?api=1&query=24.1554,47.3346"
+    id: 1,
+    name: "Central Region",
+    locations: centralRegionLocations
   },
   {
-    id: 14,
-    city: "Al-Qassim",
-    cityArabic: "القصيم",
-    location: "Applain(Sheesa) Buraydah",
-    coordinates: { lat: 26.3360, lng: 43.9632 },
-    link: "https://www.google.com/maps/search/?api=1&query=26.3360,43.9632"
+    id: 2,
+    name: "Eastern Region", 
+    locations: easternRegionLocations
   },
   {
-    id: 15,
-    city: "Al-Baha",
-    cityArabic: "الباحة",
-    location: "Applain(Sheesa) Al-Malqa",
-    coordinates: { lat: 20.0129, lng: 41.4677 },
-    link: "https://www.google.com/maps/search/?api=1&query=20.0129,41.4677"
+    id: 3,
+    name: "Western Region",
+    locations: westernRegionLocations
   },
   {
-    id: 16,
-    city: "Al-Jouf",
-    cityArabic: "الجوف",
-    location: "Applain(Sheesa) Sakaka",
-    coordinates: { lat: 29.9697, lng: 40.1064 },
-    link: "https://www.google.com/maps/search/?api=1&query=29.9697,40.1064"
+    id: 4,
+    name: "Southern Region",
+    locations: southernRegionLocations
   },
   {
-    id: 17,
-    city: "Hail",
-    cityArabic: "حائل",
-    location: "Applain(Sheesa) Al-Nuzha",
-    coordinates: { lat: 27.5119, lng: 41.7208 },
-    link: "https://www.google.com/maps/search/?api=1&query=27.5119,41.7208"
-  },
-  {
-    id: 18,
-    city: "Al-Qunfudhah",
-    cityArabic: "القنفذة",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 19.1263, lng: 41.0788 },
-    link: "https://www.google.com/maps/search/?api=1&query=19.1263,41.0788"
-  },
-  {
-    id: 19,
-    city: "Al-Lith",
-    cityArabic: "الليث",
-    location: "Applain(Sheesa) Al-Corniche",
-    coordinates: { lat: 20.1633, lng: 40.2883 },
-    link: "https://www.google.com/maps/search/?api=1&query=20.1633,40.2883"
-  },
-  {
-    id: 20,
-    city: "Al-Rabigh",
-    cityArabic: "رابغ",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 22.7986, lng: 39.0348 },
-    link: "https://www.google.com/maps/search/?api=1&query=22.7986,39.0348"
-  },
-  {
-    id: 21,
-    city: "Al-Taif",
-    cityArabic: "الطائف",
-    location: "Applain(Sheesa) Al-Hada",
-    coordinates: { lat: 21.2703, lng: 40.4158 },
-    link: "https://www.google.com/maps/search/?api=1&query=21.2703,40.4158"
-  },
-  {
-    id: 22,
-    city: "Al-Khafji",
-    cityArabic: "الخفجي",
-    location: "Applain(Sheesa) Al-Corniche",
-    coordinates: { lat: 28.4391, lng: 48.4913 },
-    link: "https://www.google.com/maps/search/?api=1&query=28.4391,48.4913"
-  },
-  {
-    id: 23,
-    city: "Al-Nairiyah",
-    cityArabic: "النعيرية",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 27.4708, lng: 48.4758 },
-    link: "https://www.google.com/maps/search/?api=1&query=27.4708,48.4758"
-  },
-  {
-    id: 24,
-    city: "Al-Rass",
-    cityArabic: "الرس",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 25.8511, lng: 43.5222 },
-    link: "https://www.google.com/maps/search/?api=1&query=25.8511,43.5222"
-  },
-  {
-    id: 25,
-    city: "Unaizah",
-    cityArabic: "عنيزة",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 26.0859, lng: 43.9877 },
-    link: "https://www.google.com/maps/search/?api=1&query=26.0859,43.9877"
-  },
-  {
-    id: 26,
-    city: "Al-Majmaah",
-    cityArabic: "المجمعة",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 25.9033, lng: 45.3453 },
-    link: "https://www.google.com/maps/search/?api=1&query=25.9033,45.3453"
-  },
-  {
-    id: 27,
-    city: "Al-Zulfi",
-    cityArabic: "الزلفي",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 26.2994, lng: 44.8154 },
-    link: "https://www.google.com/maps/search/?api=1&query=26.2994,44.8154"
-  },
-  {
-    id: 28,
-    city: "Al-Ghat",
-    cityArabic: "الغاط",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 26.1500, lng: 44.9667 },
-    link: "https://www.google.com/maps/search/?api=1&query=26.1500,44.9667"
-  },
-  {
-    id: 29,
-    city: "Al-Diriyah",
-    cityArabic: "الدرعية",
-    location: "Applain(Sheesa) Al-Balad",
-    coordinates: { lat: 24.7333, lng: 46.5833 },
-    link: "https://www.google.com/maps/search/?api=1&query=24.7333,46.5833"
-  },
-  {
-    id: 30,
-    city: "Al-Kharj",
-    cityArabic: "الخرج",
-    location: "Applain(Sheesa) Al-Sulaimi",
-    coordinates: { lat: 24.1554, lng: 47.3346 },
-    link: "https://www.google.com/maps/search/?api=1&query=24.1554,47.3346"
+    id: 5,
+    name: "International",
+    locations: internationalLocations
   }
 ];
 
 const page = () => {
+  const [activeTab, setActiveTab] = useState(1);
+
   return (
     <div
       style={{
@@ -413,7 +328,7 @@ const page = () => {
       
       {/* main location  */}
       <div className="w-full mb-[76px] sm:pt-[60px]">
-        <div className="relative   w-full mb-[76px] sm:pt-[60px] px-4 sm:px-6 md:px-8 max-w-7xl mx-auto h-[392px]">
+        <div className="relative   w-full mb-[76px] sm:pt-[60px]  max-w-7xl mx-auto h-[392px]">
           <iframe
             src={`https://www.openstreetmap.org/export/embed.html?bbox=${locations[0].coordinates.lng-0.01},${locations[0].coordinates.lat-0.01},${locations[0].coordinates.lng+0.01},${locations[0].coordinates.lat+0.01}&layer=mapnik&marker=${locations[0].coordinates.lat},${locations[0].coordinates.lng}`}
             width="100%"
@@ -425,20 +340,43 @@ const page = () => {
       </div>
 
       {/* location btn  */}
-      <div className="w-full mb-[76px]  sm:pt-[60px] px-4 sm:px-6 md:px-8 ">
+      {/* <div className="w-full mb-[76px]  sm:pt-[60px] px-4 sm:px-6 md:px-8 ">
         <div className="max-w-7xl mx-auto">
           <div className="mb-[40px] sm:mb-[50px] lg:mb-[70px]">
-            <Button className="px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base">
-              Location
+            <Button 
+            className="px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base">
+            Alpine Branches
             </Button>
+          </div>
+        </div>
+      </div> */}
+
+      {/* Tab Navigation */}
+      <div className="w-full mb-[40px] px-4 sm:px-6 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap gap-2 sm:gap-4 justify-between">
+            {tabsData.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-[24px] sm:px-[28px] lg:px-[34px] py-[8px] sm:py-[10px] border border-gray-300 rounded-[25px] text-gray-600 hover:border-gray-400 transition-colors text-sm sm:text-base ${
+                  activeTab === tab.id
+                    ? 'bg-[#2f3134] text-white shadow-lg'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-gray-400 hover:shadow-md'
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
           </div>
         </div>
       </div>
       
+      {/* Dynamic Maps Grid */}
       <div className="w-full mb-[76px] sm:pt-[60px] px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
-            {locations.map((location) => (
+            {tabsData.find(tab => tab.id === activeTab)?.locations.map((location) => (
               <div 
                 key={location.id} 
                 className="rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300"
