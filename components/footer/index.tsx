@@ -19,26 +19,31 @@ const montserrat = localFont({
 export default function YemmarFooter() {
   return (
     <footer className={`text-white    justify-center flex w-full  ${montserrat.className}`}>
-      <div className="max-w-7xl w-full flex flex-col p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] justify-center bg-[#2F3134]">
+      <div className="max-w-7xl w-full  flex flex-col p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] justify-center bg-[#2F3134]">
         
         {/* Main Content Section */}
-        <div className="flex w-full  justify-between flex-col md:flex-row mb-8 sm:mb-10 md:mb-12 gap-8 md:gap-0">
+        <div className="flex w-full h-full min-h-full  justify-between flex-col md:flex-row ">
           
           {/* Logo Section */}
-          <div className="w-full md:w-[60%] flex justify-start">
+          <div className="w-full flex-col md:w-[60%]  flex justify-between">
             <div className='w-[150px] md:w-[250px]'>
             <Image src={FooterLogo} className="" alt="logo" />
 
             </div>
+            <div className="w-full  text-center sm:text-left">
+            <p className="text-white text-xs sm:text-sm">
+              Yemmer Group © 2024 All rights reserved. Privacy Policy | Terms & Conditions
+            </p>
+          </div>
           </div>
 
           {/* Navigation and Contact Section */}
           <div className="w-full md:w-[40%] text-white">
-            <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row justify-between gap-6 sm:gap-8">
+            <div className="flex flex-col  sm:flex-row md:flex-col lg:flex-row justify-between gap-6 sm:gap-8">
               
               {/* Navigation Links */}
               <div className="flex flex-col space-y-3 sm:space-y-4">
-                <nav className="flex flex-col space-y-2 sm:space-y-3">
+                <nav className="flex flex-col   space-y-2 sm:space-y-3">
                   <Link href="#" className="text-sm sm:text-base hover:text-white transition-colors duration-200">
                     Home
                   </Link>
@@ -83,26 +88,7 @@ export default function YemmarFooter() {
                     headoffice@yemmar.com
                   </a>
                 </div>
-
-                </div>
-                
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Bottom Section */}
-        <div className="flex flex-col sm:flex-row w-full items-center gap-4 sm:gap-0">
-          
-          {/* Copyright */}
-          <div className="w-full sm:w-[80%] text-center sm:text-left">
-            <p className="text-white text-xs sm:text-sm">
-              Yemmer Group © 2024 All rights reserved. Privacy Policy
-            </p>
-          </div>
-          <div className="w-full sm:w-[20%] flex justify-center sm:justify-between px-2  gap-4 sm:gap-5">
+                <div className="w-full  mt-[50px] flex justify-center sm:justify-between   gap-4 sm:gap-5">
             <a 
               href="#" 
               className="text-gray-400 hover:text-white transition-colors duration-200 flex-shrink-0"
@@ -130,13 +116,21 @@ export default function YemmarFooter() {
               aria-label="Twitter"
             >
               <FontAwesomeIcon icon={faXTwitter} className="w-5 h-5 sm:w-6 sm:h-6" />
-              {/* <FontAwesomeIcon icon="fa-brands fa-x-twitter"    className="w-5 h-5 sm:w-6 sm:h-6"  /> */}
             </a>
           </div>
 
-          {/* Social Media Icons */}
-        
+                
+
+                </div>
+                
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+       
       </div>
     </footer>
   );
