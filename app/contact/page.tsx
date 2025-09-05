@@ -363,8 +363,8 @@ const page = () => {
       </div>
       
       {/* main location  */}
-      <div className="w-full mb-[76px] sm:pt-[60px]">
-        <div className="relative   w-full mb-[76px] sm:pt-[60px]  max-w-7xl mx-auto h-[392px]">
+      <div className="w-full mb-[76px] md:mb-0 sm:pt-[60px]">
+        <div className="relative w-full mb-[76px] sm:pt-[60px] max-w-7xl mx-auto h-[392px] px-4 sm:px-6 md:px-0">
           <iframe
             src={`https://www.openstreetmap.org/export/embed.html?bbox=${locations[0].coordinates.lng-0.01},${locations[0].coordinates.lat-0.01},${locations[0].coordinates.lng+0.01},${locations[0].coordinates.lat+0.01}&layer=mapnik&marker=${locations[0].coordinates.lat},${locations[0].coordinates.lng}`}
             width="100%"
@@ -377,10 +377,10 @@ const page = () => {
 
       {/* Tab Navigation */}
       <div className="w-full mb-[40px] px-4 sm:px-6 md:px-8">
-        <div className="max-w-7xl px-2 mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div 
             ref={tabsContainerRef}
-            className="flex overflow-x-auto  gap-2 sm:gap-4 justify-between scrollbar-hide px-2"
+            className="flex overflow-x-auto gap-2 sm:gap-4 justify-between scrollbar-hide"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {tabsData.map((tab, index) => (
