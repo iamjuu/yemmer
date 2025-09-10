@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light !important;
 }
 
 @theme inline {
@@ -14,10 +15,21 @@
   --font-mono: var(--font-montserrat);
 }
 
+/* Force light mode by ignoring user's system preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff !important;
+    --foreground: #171717 !important;
+    color-scheme: light !important;
+  }
+  
+  html {
+    color-scheme: light !important;
+  }
+  
+  body {
+    background: #ffffff !important;
+    color: #171717 !important;
   }
 }
 
@@ -25,6 +37,35 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Additional rules to prevent dark mode overrides */
+html {
+  color-scheme: light !important;
+}
+
+/* Ensure all elements maintain light mode styling */
+* {
+  color-scheme: light !important;
+}
+
+/* Prevent Chrome from inverting colors in dark mode */
+@media (prefers-color-scheme: dark) {
+  * {
+    color-scheme: light !important;
+  }
+  
+  /* Ensure form elements maintain light styling */
+  input, textarea, select {
+    background-color: transparent !important;
+    color: #171717 !important;
+  }
+  
+  /* Ensure buttons maintain light styling */
+  button {
+    background-color: white !important;
+    color: #171717 !important;
+  }
 }
 
 * {
