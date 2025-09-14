@@ -136,18 +136,18 @@ const page = () => {
         </div>
       </div>
 
-      <div className="w-full px-2 md:px-3 pt-[150px] md:pt-[0px] pb-[150px]">
+      <div className="w-full px-2 md:px-3 pt-[30px] md:pt-[0px] pb-[150px]">
         <div className="max-w-7xl mx-auto">
-          <div className="pt-[150px] pb-[80px] ">
+          <div className="md:pt-[150px] pt-[30px] pb-[80px] ">
             <button className="text-[26px] font-[300] px-[32px] py-[10px] border-2 border-gray-300 rounded-full text-gray-700 text-sm sm:text-base  hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
               Yemmar Industries
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[50px]">
             {businessSectors.map((sector) => (
               <div key={sector.id} className="w-full">
-                <div className="flex justify-center flex-col gap-[10px] items-center relative">
+                <div className="flex justify-center flex-col gap-[10px]  items-center relative">
                   <div className="w-[65px] h-[65px] relative">
                     {/* Shimmer loading state for icon */}
                     {!sectorImagesLoaded[sector.id] && (
@@ -163,7 +163,7 @@ const page = () => {
                       onLoad={() => handleImageLoad(sector.id, 'sector')}
                     />
                   </div>
-                  <div className="relative">
+                  <div className="relative ">
                     <h1 className="font-[300] text-center text-[32px]">
                       {sector.title}
                     </h1>
