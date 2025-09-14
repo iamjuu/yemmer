@@ -55,7 +55,7 @@ const page = () => {
               className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] mb-6 sm:mb-8 md:mb-12"
               style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
             >
-              <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+              <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-[1.5rem] lg:gap-12">
                 <div className="w-full lg:w-[60%] flex flex-col order-2 lg:order-1">
                   <div className="mb-6 sm:mb-8 lg:mb-[60px]">
                     <Button
