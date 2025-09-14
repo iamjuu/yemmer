@@ -144,7 +144,7 @@ const page = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
             {businessSectors.map((sector) => (
               <div key={sector.id} className="w-full">
                 <div className="flex justify-center flex-col gap-[10px] items-center relative">
